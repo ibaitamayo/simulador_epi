@@ -56,6 +56,12 @@ world <- rnaturalearth::ne_countries(
   returnclass = "sf"
 )
 
+# Natural Earth uses non-standard ISO3 codes for some entities.
+# Reconcile them with UN WPP ISO3 codes before joining.
+world$iso_a3[world$name == "France"] <- "FRA"
+world$iso_a3[world$name == "Norway"] <- "NOR"
+world$name[world$name == "United States"] <- "United States of America"
+
 world <- world %>%
   filter(iso_a3 %in% age6$iso3, iso_a3 != "-99") %>%
   select(name, iso_a3, continent, geometry)
