@@ -18,3 +18,4 @@ old/
 __pycache__/
 
 .Rproj.user/
+.Rhistory
