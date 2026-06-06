@@ -69,6 +69,20 @@ Alternatively, from terminal:
 
 Rscript -e 'shiny::runApp("app_epidemiologic_v17_academic_freeze.R")'
 
+## Running from RStudio
+
+Open `epidem_vir.Rproj`, then open `app_epidemiologic_v17_academic_freeze.R` and click **Run App**.
+
+### First run with renv
+
+This project uses `renv` for reproducibility. On some RStudio installations, the **Run App** button may request installation or update of `shiny` even when it is already available in the project environment.
+
+If this occurs, run `renv::restore()` and restart R. Then try **Run App** again.
+
+Alternatively, launch the application directly with `shiny::runApp("app_epidemiologic_v17_academic_freeze.R")`.
+
+To verify the installation, run `packageVersion("shiny")` and `find.package("shiny")`.
+
 ## Main dependencies
 
 The app uses R/Shiny and common data visualization and spatial packages:
