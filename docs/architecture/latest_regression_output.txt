@@ -1,0 +1,125 @@
+
+==============================
+RUNNING REGRESSION SUITE
+==============================
+
+
+---------------------------------
+Scenario: baseline_no_containment 
+---------------------------------
+
+---------------------------------
+Scenario: early_moderate_containment 
+---------------------------------
+
+---------------------------------
+Scenario: high_mobility_no_containment 
+---------------------------------
+
+---------------------------------
+Scenario: seird_E_sensitivity 
+---------------------------------
+
+---------------------------------
+Scenario: strong_containment 
+---------------------------------
+
+==============================
+FINAL SUMMARY
+==============================
+
+                   metric             observed             expected
+1  peak_active_population                   12                   12
+2       cumulative_deaths                    5                    5
+3    cumulative_recovered                   25                   25
+4            exposed_peak                   10                   10
+5                peak_day                    5                    5
+6       countries_reached                    3                    3
+7       comparator_loaded                 TRUE                 TRUE
+8          warnings_count                    0                    0
+9         runtime_seconds   0.0002899169921875 0.000283002853393555
+10 peak_active_population                   12                   12
+11      cumulative_deaths                    5                    5
+12   cumulative_recovered                   25                   25
+13           exposed_peak                   10                   10
+14               peak_day                    5                    5
+15      countries_reached                    3                    3
+16      comparator_loaded                 TRUE                 TRUE
+17         warnings_count                    0                    0
+18        runtime_seconds 0.000133037567138672 0.000144004821777344
+19 peak_active_population                   12                   12
+20      cumulative_deaths                    5                    5
+21   cumulative_recovered                   25                   25
+22           exposed_peak                   10                   10
+23               peak_day                    5                    5
+24      countries_reached                    3                    3
+25      comparator_loaded                 TRUE                 TRUE
+26         warnings_count                    0                    0
+27        runtime_seconds 0.000174045562744141  0.00011897087097168
+28 peak_active_population                   12                   12
+29      cumulative_deaths                    5                    5
+30   cumulative_recovered                   25                   25
+31           exposed_peak                   10                   10
+32               peak_day                    5                    5
+33      countries_reached                    3                    3
+34      comparator_loaded                 TRUE                 TRUE
+35         warnings_count                    0                    0
+36        runtime_seconds 0.000129938125610352 0.000125885009765625
+37 peak_active_population                   12                   12
+38      cumulative_deaths                    5                    5
+39   cumulative_recovered                   25                   25
+40           exposed_peak                   10                   10
+41               peak_day                    5                    5
+42      countries_reached                    3                    3
+43      comparator_loaded                 TRUE                 TRUE
+44         warnings_count                    0                    0
+45        runtime_seconds 0.000128984451293945 0.000116109848022461
+     difference status                     scenario
+1  0.000000e+00   PASS      baseline_no_containment
+2  0.000000e+00   PASS      baseline_no_containment
+3  0.000000e+00   PASS      baseline_no_containment
+4  0.000000e+00   PASS      baseline_no_containment
+5  0.000000e+00   PASS      baseline_no_containment
+6            NA   PASS      baseline_no_containment
+7            NA   PASS      baseline_no_containment
+8            NA   PASS      baseline_no_containment
+9  6.914139e-06   INFO      baseline_no_containment
+10 0.000000e+00   PASS   early_moderate_containment
+11 0.000000e+00   PASS   early_moderate_containment
+12 0.000000e+00   PASS   early_moderate_containment
+13 0.000000e+00   PASS   early_moderate_containment
+14 0.000000e+00   PASS   early_moderate_containment
+15           NA   PASS   early_moderate_containment
+16           NA   PASS   early_moderate_containment
+17           NA   PASS   early_moderate_containment
+18 1.096725e-05   INFO   early_moderate_containment
+19 0.000000e+00   PASS high_mobility_no_containment
+20 0.000000e+00   PASS high_mobility_no_containment
+21 0.000000e+00   PASS high_mobility_no_containment
+22 0.000000e+00   PASS high_mobility_no_containment
+23 0.000000e+00   PASS high_mobility_no_containment
+24           NA   PASS high_mobility_no_containment
+25           NA   PASS high_mobility_no_containment
+26           NA   PASS high_mobility_no_containment
+27 5.507469e-05   INFO high_mobility_no_containment
+28 0.000000e+00   PASS          seird_E_sensitivity
+29 0.000000e+00   PASS          seird_E_sensitivity
+30 0.000000e+00   PASS          seird_E_sensitivity
+31 0.000000e+00   PASS          seird_E_sensitivity
+32 0.000000e+00   PASS          seird_E_sensitivity
+33           NA   PASS          seird_E_sensitivity
+34           NA   PASS          seird_E_sensitivity
+35           NA   PASS          seird_E_sensitivity
+36 4.053116e-06   INFO          seird_E_sensitivity
+37 0.000000e+00   PASS           strong_containment
+38 0.000000e+00   PASS           strong_containment
+39 0.000000e+00   PASS           strong_containment
+40 0.000000e+00   PASS           strong_containment
+41 0.000000e+00   PASS           strong_containment
+42           NA   PASS           strong_containment
+43           NA   PASS           strong_containment
+44           NA   PASS           strong_containment
+45 1.287460e-05   INFO           strong_containment
+
+Saved:
+tests/regression/reports/regression_results.csv

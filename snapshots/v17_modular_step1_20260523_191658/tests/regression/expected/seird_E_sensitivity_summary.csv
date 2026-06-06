@@ -1,0 +1,2 @@
+"scenario_id","country","peak_active_population","peak_day","cumulative_deaths","cumulative_recovered","countries_reached","exposed_peak","comparator_loaded","warnings_count","runtime_seconds"
+"seird_E_sensitivity","Spain",12,5,5,25,3,10,TRUE,0,0.000125885009765625

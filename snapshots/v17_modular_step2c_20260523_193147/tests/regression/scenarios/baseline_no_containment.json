@@ -1,0 +1,8 @@
+{
+  "scenario_id": "baseline_no_containment",
+  "country": "Spain",
+  "containment": "none",
+  "E_days": 4,
+  "mobility": "default",
+  "seed": 1234
+}

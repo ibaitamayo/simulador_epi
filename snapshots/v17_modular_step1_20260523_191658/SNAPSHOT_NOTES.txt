@@ -1,0 +1,19 @@
+Snapshot: v17_modular_step1
+Date: 20260523_191658
+
+Status:
+- App opens.
+- Basic simulation runs.
+- Regression suite PASS/INFO.
+- Extracted helper files:
+  - R/helpers_core.R
+  - R/age_helpers.R
+  - R/containment_helpers.R
+  - R/data_loading_helpers.R
+  - R/diagnostics_helpers.R
+
+Important:
+- make_containment_schedule returned to main app.
+- load_world_country_polygons returned to main app.
+- world_polygon_available returned to main app.
+- Avoid extracting functions depending on global constants unless parametrized first.

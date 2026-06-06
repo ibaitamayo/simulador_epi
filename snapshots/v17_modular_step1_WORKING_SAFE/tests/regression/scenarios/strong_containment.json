@@ -1,0 +1,8 @@
+{
+  "scenario_id": "strong_containment",
+  "country": "Spain",
+  "containment": "strong",
+  "E_days": 4,
+  "mobility": "default",
+  "seed": 1234
+}

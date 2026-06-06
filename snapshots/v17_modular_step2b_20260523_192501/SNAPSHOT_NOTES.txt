@@ -1,0 +1,16 @@
+Snapshot: v17_modular_step2b
+Date: 20260523_192501
+
+Status:
+- App: app_epidemiologic_v17_academic_freeze.R
+- App opens and runs.
+- Regression suite PASS/INFO.
+- Chart helper duplicates removed after step2.
+
+Active helper files:
+- R/helpers_core.R
+- R/age_helpers.R
+- R/containment_helpers.R
+- R/data_loading_helpers.R
+- R/diagnostics_helpers.R
+- R/chart_helpers.R

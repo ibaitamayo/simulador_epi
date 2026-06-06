@@ -1,0 +1,8 @@
+{
+  "scenario_id": "seird_E_sensitivity",
+  "country": "Spain",
+  "E_days": [3,4,5],
+  "containment": "none",
+  "mobility": "default",
+  "seed": 1234
+}

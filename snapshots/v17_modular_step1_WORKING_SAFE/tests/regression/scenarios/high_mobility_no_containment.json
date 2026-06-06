@@ -1,0 +1,8 @@
+{
+  "scenario_id": "high_mobility_no_containment",
+  "country": "Spain",
+  "containment": "none",
+  "E_days": 4,
+  "mobility": "high",
+  "seed": 1234
+}

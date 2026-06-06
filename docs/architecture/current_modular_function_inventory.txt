@@ -1,0 +1,35 @@
+R/age_helpers.R:4:calibrate_cfr_profile_to_weighted_target <- function(raw_multiplier, population_share, target_cfr, cfr_cap = 0.95) {
+R/age_helpers.R:46:make_age_group_parameters <- function(preset = "world_average", mortality_rate = 0.01, neutral = TRUE, cfr_scale = 1) {
+R/age_helpers.R:103:normalize_age_distribution_matrix <- function(mat, age_groups) {
+R/age_helpers.R:119:extract_age_group_matrix <- function(obj, age_groups) {
+R/age_helpers.R:143:model_age_share_from_country_distribution <- function(country_populations, country_age_distribution) {
+R/age_helpers.R:151:update_age_params_for_model_age_share <- function(age_params, model_age_share, mortality_rate, neutral = TRUE, cfr_scale = 1) {
+R/age_helpers.R:187:format_country_age_distribution_for_display <- function(country_age_distribution, max_rows = 50) {
+R/age_helpers.R:196:format_age_parameters_for_display <- function(age_params) {
+R/chart_helpers.R:13:get_peak_info <- function(df) {
+R/containment_helpers.R:8:make_containment_preset_table <- function() {
+R/containment_helpers.R:29:containment_multipliers_for_day <- function(containment_schedule, day) {
+R/containment_helpers.R:46:containment_is_active_for_day <- function(containment_schedule, day) {
+R/containment_helpers.R:53:containment_transmission_vector_for_day <- function(containment_schedule, day, countries) {
+R/containment_helpers.R:63:apply_containment_to_passenger_matrix <- function(passenger_matrix_daily, containment_schedule, day, countries) {
+R/containment_helpers.R:75:format_containment_schedule_for_display <- function(containment_schedule) {
+R/containment_helpers.R:121:calculate_horizon_diagnostics <- function(sim_result, mortality_rate = NA_real_, world_population = WORLD_POPULATION) {
+R/data_loading_helpers.R:8:detect_current_app_dir <- function() {
+R/data_loading_helpers.R:36:age_distribution_search_dirs <- function() {
+R/data_loading_helpers.R:45:find_age_distribution_file <- function(filename) {
+R/data_loading_helpers.R:71:load_external_country_age_distribution <- function(countries, age_groups) {
+R/data_loading_helpers.R:115:make_country_age_distribution <- function(countries, mode = "country_specific") {
+R/data_loading_helpers.R:142:  normalize_row <- function(x) {
+R/data_loading_helpers.R:195:fix_country_polygons_for_leaflet <- function(obj) {
+R/diagnostics_helpers.R:4:calculate_dynamic_diagnostics <- function(sim_result, base_R0 = NA_real_, max_R0_multiplier = NA_real_) {
+R/helpers_core.R:4:haversine_km <- function(lon1, lat1, lon2, lat2) {
+R/helpers_core.R:14:format_big <- function(x, digits = 0) {
+R/helpers_core.R:19:scenario_multiplier <- function(x) {
+R/helpers_core.R:31:variant_calibration_values <- function(x) {
+R/helpers_core.R:42:calculate_metrics <- function(results, N) {
+R/helpers_core.R:61:make_infectivity_kernel <- function(duration_days, profile = "mid") {
+R/helpers_core.R:92:import_seed_probability <- function(rt_destination, remaining_infectivity, opportunity_modifier = 1) {
+R/helpers_core.R:100:keep_country_names <- function(x, countries) {
+R/scenario_helpers.R:4:scenario_safe_value <- function(x, default = NA) {
+R/scenario_helpers.R:10:parse_optional_seed <- function(seed_value) {
+R/scenario_helpers.R:20:dynamic_preset_values <- function(preset) {

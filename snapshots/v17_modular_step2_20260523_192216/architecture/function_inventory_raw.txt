@@ -1,0 +1,78 @@
+782:haversine_km <- function(lon1, lat1, lon2, lat2) {
+791:format_big <- function(x, digits = 0) {
+795:scenario_multiplier <- function(x) {
+806:variant_calibration_values <- function(x) {
+816:make_bilateral_passenger_matrix <- function(countries,
+876:calculate_metrics <- function(results, N) {
+895:make_infectivity_kernel <- function(duration_days, profile = "mid") {
+929:import_seed_probability <- function(rt_destination, remaining_infectivity, opportunity_modifier = 1) {
+936:keep_country_names <- function(x, countries) {
+947:calibrate_cfr_profile_to_weighted_target <- function(raw_multiplier, population_share, target_cfr, cfr_cap = 0.95) {
+992:make_age_group_parameters <- function(preset = "world_average", mortality_rate = 0.01, neutral = TRUE, cfr_scale = 1) {
+1059:detect_current_app_dir <- function() {
+1084:age_distribution_search_dirs <- function() {
+1092:find_age_distribution_file <- function(filename) {
+1117:normalize_age_distribution_matrix <- function(mat, age_groups) {
+1132:extract_age_group_matrix <- function(obj, age_groups) {
+1155:load_external_country_age_distribution <- function(countries, age_groups) {
+1202:make_country_age_distribution <- function(countries, mode = "country_specific") {
+1229:  normalize_row <- function(x) {
+1281:fix_country_polygons_for_leaflet <- function(obj) {
+1293:load_world_country_polygons <- function() {
+1345:world_polygon_available <- function() {
+1350:model_age_share_from_country_distribution <- function(country_populations, country_age_distribution) {
+1357:update_age_params_for_model_age_share <- function(age_params, model_age_share, mortality_rate, neutral = TRUE, cfr_scale = 1) {
+1392:format_country_age_distribution_for_display <- function(country_age_distribution, max_rows = 50) {
+1400:format_age_parameters_for_display <- function(age_params) {
+1424:make_containment_preset_table <- function() {
+1441:make_containment_schedule <- function(enabled = FALSE,
+1534:containment_multipliers_for_day <- function(containment_schedule, day) {
+1551:containment_is_active_for_day <- function(containment_schedule, day) {
+1557:containment_transmission_vector_for_day <- function(containment_schedule, day, countries) {
+1566:apply_containment_to_passenger_matrix <- function(passenger_matrix_daily, containment_schedule, day, countries) {
+1577:format_containment_schedule_for_display <- function(containment_schedule) {
+1623:calculate_horizon_diagnostics <- function(sim_result, mortality_rate = NA_real_, world_population = WORLD_POPULATION) {
+1674:calculate_dynamic_diagnostics <- function(sim_result, base_R0 = NA_real_, max_R0_multiplier = NA_real_) {
+2539:server <- function(input, output, session) {
+2569:  scenario_safe_value <- function(x, default = NA) {
+2574:  capture_current_scenario_config <- function() {
+2603:  scenario_summary_from_results <- function(name, config, results) {
+2633:  build_scenario_interpretation <- function(summary_row, comparator_row = NULL) {
+2688:  update_scenario_choices <- function() {
+2694:  apply_scenario_config <- function(cfg) {
+2732:  parse_optional_seed <- function(seed_value) {
+2741:  dynamic_preset_values <- function(preset) {
+2755:  get_dynamic_config <- function() {
+2776:  summarize_dynamic_robustness <- function(results) {
+2778:    safe_mean <- function(x) {
+2783:    safe_quantile <- function(x, prob) {
+2812:  summarize_dynamic_robustness_global <- function(results) {
+2820:    safe_mean <- function(x) {
+2958:          dyn_value <- function(metric, numeric = TRUE) {
+3185:  build_default_assumptions_registry <- function() {
+3398:  build_default_bibliography_table <- function() {
+3709:    scalarize_cost_value <- function(x) {
+3734:    get_sim_value <- function(day_value) {
+3760:    parse_date_input <- function(x) {
+3766:    estimate_day0_date <- function(obs_date, obs_day) {
+3770:    estimate_event_date <- function(obs_date, lag_days) {
+3783:    safe_ratio <- function(sim, obs) {
+4208:  run_simulation <- function(R0_target,
+4303:    draw_mutation_effect <- function() {
+4605:  run_simulation_age_adjusted <- function(R0_target,
+4739:    draw_mutation_effect <- function() {
+5160:  locate_reference_rds <- function(filename) {
+5186:  load_fixed_reference_cache <- function(path, reference_type = "basic") {
+5301:  slice_fixed_reference <- function(ref, days) {
+5513:    get_horizon_value <- function(metric_name) {
+5539:    get_dynamic_diag_value <- function(metric_name) {
+5663:  global_plot_values <- function(x) {
+5666:  global_axis_title <- function(metric_label) {
+5669:  global_hover <- function(virus_label, metric_label) {
+5676:  get_peak_info <- function(df) {
+5680:  add_infection_peak_lines <- function(p, h_peak, c_peak, y_values) {
+5817:  make_map_legend <- function(title, selected_day, panel_max_value, current_day_max_value, color_low, color_high, empty_message = NULL, boost_visibility = TRUE, choropleth = FALSE, polygon_note = NULL) {
+5840:  calculate_map_radius <- function(values, full_max, boost_visibility = TRUE, min_radius = 5, max_radius = 46) {
+5857:  current_containment_countries_for_day <- function(selected_day) {
+5878:  update_country_map <- function(map_id, history, selected_day, value_label, palette_colors, popup_label, empty_message, boost_visibility = TRUE, use_choropleth = TRUE) {
+6064:  refresh_current_maps <- function() {

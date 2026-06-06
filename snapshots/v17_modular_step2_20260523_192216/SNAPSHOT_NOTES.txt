@@ -1,0 +1,31 @@
+Snapshot: v17_modular_step2
+Date: 20260523_192216
+
+Status:
+- App opens.
+- Simulation runs.
+- Regression suite PASS/INFO.
+- Global curves verified.
+
+Extracted helper files:
+- R/helpers_core.R
+- R/age_helpers.R
+- R/containment_helpers.R
+- R/data_loading_helpers.R
+- R/diagnostics_helpers.R
+- R/chart_helpers.R
+
+Returned to main app due to global dependencies:
+- make_containment_schedule
+- load_world_country_polygons
+- world_polygon_available
+
+Completed in step2:
+- global_plot_values
+- global_axis_title
+- global_hover
+- get_peak_info
+- add_infection_peak_lines
+
+Rule:
+Avoid extracting functions that depend on global constants/state unless parametrized first.

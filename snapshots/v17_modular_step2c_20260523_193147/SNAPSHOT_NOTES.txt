@@ -1,0 +1,19 @@
+Snapshot: v17_modular_step2c
+Date: 20260523_193147
+
+Status:
+- App opens and simulation runs.
+- Regression suite PASS/INFO.
+- chart_helpers partially rolled back.
+
+R/chart_helpers.R:
+- get_peak_info()
+
+Returned to app due to runtime/UI coupling:
+- global_plot_values
+- global_axis_title
+- global_hover
+- add_infection_peak_lines
+
+Rule reinforced:
+Do not extract server/UI/input-coupled helpers.

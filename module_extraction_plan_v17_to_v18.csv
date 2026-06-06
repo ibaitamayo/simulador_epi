@@ -1,0 +1,14 @@
+target_file,current_content,risk,notes
+R/data_catalog.R,"COUNTRIES_LIST, COUNTRY_COORDS, COUNTRY_METADATA, COUNTRY_TRAVEL_PARAMS, PASSENGER_TRAFFIC_EDGES",low,Move after regression baseline; pure constants.
+R/utils_formatting.R,"format_big, safe_ratio, parse_date_input, scalarize_cost_value",low,Pure utilities; easiest extraction.
+R/mobility.R,"haversine_km, make_bilateral_passenger_matrix, import_seed_probability, apply_containment_to_passenger_matrix",medium,Requires passenger matrix regression checks.
+R/age_adjustment.R,"make_age_group_parameters, load_external_country_age_distribution, make_country_age_distribution, format_age_*",medium,Important: protect COUNTRY_AGE_DISTRIBUTION naming.
+R/containment.R,"make_containment_preset_table, make_containment_schedule, containment_*",medium,Good candidate before new modules.
+R/diagnostics.R,"calculate_metrics, calculate_horizon_diagnostics, calculate_dynamic_diagnostics",low-medium,Pure outputs but some dependencies on sim result structure.
+R/scenario_lab.R,"capture_current_scenario_config, apply_scenario_config, scenario_summary_from_results, build_scenario_interpretation",medium-high,Inside server now; extract after tests because it touches input/session.
+R/reference_comparator.R,"locate_reference_rds, load_fixed_reference_cache, slice_fixed_reference",medium,Protect RDS loading; no runtime generation on shinyapps.io.
+R/model_seird.R,"run_simulation, run_simulation_age_adjusted, make_infectivity_kernel",high,Do not extract until baseline outputs are frozen.
+modules/mod_world_map.R,"World map UI/server, update_country_map, refresh_current_maps",high,Leaflet state is fragile; later extraction.
+modules/mod_scenario_lab.R,Scenario lab UI/server outputs/downloads,medium-high,Useful but needs namespacing care.
+modules/mod_situational_awareness.R,new Minimum data / Situational Awareness Lab,medium,Add after v17 baseline; can be independent first.
+R/ui_text_registry.R,"all visible labels, help texts, tab names, report titles",low,Start immediately; no behavior risk.

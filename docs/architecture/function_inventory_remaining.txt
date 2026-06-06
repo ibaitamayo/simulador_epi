@@ -1,0 +1,43 @@
+22:make_containment_schedule <- function(enabled = FALSE,
+886:make_bilateral_passenger_matrix <- function(countries,
+960:load_world_country_polygons <- function() {
+1010:world_polygon_available <- function() {
+1814:server <- function(input, output, session) {
+1844:capture_current_scenario_config <- function() {
+1873:  scenario_summary_from_results <- function(name, config, results) {
+1903:  build_scenario_interpretation <- function(summary_row, comparator_row = NULL) {
+1958:  update_scenario_choices <- function() {
+1964:  apply_scenario_config <- function(cfg) {
+2001:get_dynamic_config <- function() {
+2022:  summarize_dynamic_robustness <- function(results) {
+2024:    safe_mean <- function(x) {
+2029:    safe_quantile <- function(x, prob) {
+2058:  summarize_dynamic_robustness_global <- function(results) {
+2066:    safe_mean <- function(x) {
+2204:          dyn_value <- function(metric, numeric = TRUE) {
+2431:  build_default_assumptions_registry <- function() {
+2644:  build_default_bibliography_table <- function() {
+2955:    scalarize_cost_value <- function(x) {
+2980:    get_sim_value <- function(day_value) {
+3006:    parse_date_input <- function(x) {
+3012:    estimate_day0_date <- function(obs_date, obs_day) {
+3016:    estimate_event_date <- function(obs_date, lag_days) {
+3029:    safe_ratio <- function(sim, obs) {
+3454:  run_simulation <- function(R0_target,
+3549:    draw_mutation_effect <- function() {
+3851:  run_simulation_age_adjusted <- function(R0_target,
+3985:    draw_mutation_effect <- function() {
+4406:  locate_reference_rds <- function(filename) {
+4432:  load_fixed_reference_cache <- function(path, reference_type = "basic") {
+4547:  slice_fixed_reference <- function(ref, days) {
+4759:    get_horizon_value <- function(metric_name) {
+4785:    get_dynamic_diag_value <- function(metric_name) {
+4908:global_plot_values <- function(x) {
+4912:global_axis_title <- function(metric_label) {
+4916:global_hover <- function(virus_label, metric_label) {
+4924:add_infection_peak_lines <- function(p, h_peak, c_peak, y_values) {
+5061:  make_map_legend <- function(title, selected_day, panel_max_value, current_day_max_value, color_low, color_high, empty_message = NULL, boost_visibility = TRUE, choropleth = FALSE, polygon_note = NULL) {
+5084:  calculate_map_radius <- function(values, full_max, boost_visibility = TRUE, min_radius = 5, max_radius = 46) {
+5101:  current_containment_countries_for_day <- function(selected_day) {
+5122:  update_country_map <- function(map_id, history, selected_day, value_label, palette_colors, popup_label, empty_message, boost_visibility = TRUE, use_choropleth = TRUE) {
+5308:  refresh_current_maps <- function() {

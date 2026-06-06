@@ -1,0 +1,145 @@
+source_file,line_approx,visible_ui_string,translate_later,notes
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1844,Population epidemiological simulator with COVID reference comparator,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1845,"Configurable simulation against a COVID reference - R/Shiny tool for teaching, planning and visualization",yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1851,Simulation parameters,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1852,Detail level:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1863,Show technical validation options,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1902,COVID comparator,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1905,Reference comparator:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1922,Run simulation,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1924,Automatically play animation after completion,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1926,Reset defaults,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1927,Download results CSV,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1932,Apply Omicron reference to simulation,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1943,Model characteristics,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1944,Model type:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1954,Compartment structure:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1965,Age-parameter mode:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1974,Global age-mortality adjustment:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1975,Age distribution:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1989,Country where the infection originates,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,1992,Advanced initial-country selection mode:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2003,Country where the infection originates:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2006,Choose random country,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2013,Initial number of cases:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2016,International air-traffic scenario:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2027,Imported-establishment opportunity modifier:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2037,Pathogen-like scenario,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2038,Initial expansion capacity (R0/Rt):,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2040,Active-phase duration (days):,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2041,Exposed phase before active transmission (days):,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2052,Transmission profile during that period:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2065,Average mortality (%):,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2069,Emergence of advantage variants,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2072,Emergence of advantage variants:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2087,Dynamic variant module:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2099,Macro-effective replacement-opportunity rate:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2101,Population-opportunity multiplier:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2102,Macroscopic variant-emergence calibration:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2112,Maximum R0/Rt multiplier versus initial variant:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2119,Measure intensity:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2131,Where measures are applied:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2149,Start day of measures:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2150,End day of measures:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2153,Local transmission reduction (%):,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2154,Between-country mobility reduction (%):,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2163,Simulation horizon,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2164,Simulated days:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2167,Plot scale:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2173,Representativeness and calibration,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2174,Show calibration diagnostics,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2175,Reference population for calibration:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2176,Observed cumulative positives (absolute number):,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2177,User-specified detection fraction (0-1):,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2178,Estimate detection fraction using seroprevalence and positives,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2179,Observation day for cumulative positives:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2180,"Lag from underlying event to positive record (days; default 5, plausible range 3-7):",yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2181,Observed seroprevalence (% of reference population):,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2182,Observation day for seroprevalence:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2183,"Lag from underlying event to serology signal (days; default 26, plausible range 18-30):",yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2184,Estimate calendar date for simulated day 0,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2191,Explicit model assumptions,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2197,World map,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2198,Initial connectivity before simulation,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2200,Show initial connectivity of selected country,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2207,Geographic evolution during simulation,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2210,Simulation day:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2211,Start animation,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2212,Pause animation,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2216,Active by country,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2217,Cumulative deaths by country,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2222,Global results,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2227,Peak timing,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2231,Scenario lab,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2233,Save and compare scenarios,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2235,Start from a preset scenario:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2249,Apply preset,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2252,Scenario label:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2267,Save scenario,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2268,Duplicate selected,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2269,Restore configuration,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2270,Delete selected,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2273,Saved scenario:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2275,Export HTML card,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2276,Export JSON,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2277,Export CSV table,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2278,Compare with current,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2282,Load imported configuration,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2285,Exploration prompts,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2296,Selected scenario card,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2300,A/B/C comparison,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2305,Compared curves,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2307,Export comparison CSV,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2308,Export comparison HTML,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2312,Scenario library,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2316,Variant dynamics,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2317,Variant Frequency Over Time,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2320,Candidate Mutations and Established Variants,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2323,Variant emergence plausibility check,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2324,Dynamic diagnostics,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2327,Dynamic preset robustness across seeds,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2329,Replicates per preset:,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2330,Run dynamic robustness check,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2332,Global High vs Reference comparison,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2335,Plausibility diagnostic,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2339,Selective sweep analysis,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2343,Country-level spread,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2344,Infection distribution by country,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2347,Countries reached over time,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2350,Top affected countries,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2355,Top international passenger corridors used by the model,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2358,Diffusion and representation diagnostics,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2365,Age adjustment & cost,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2368,Age-group parameters used by the model,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2372,Age-group summary after simulation,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2377,Computational cost profile,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2380,Copy-paste evaluation report,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2385,Calibration & Representativeness,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2386,Lag-adjusted calibration diagnostics,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2389,Detection fraction and calendar-alignment diagnostics,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2392,Copy-paste calibration report,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2397,Containment measures,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2398,Scenario-level containment definitions,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2401,Containment schedule used in current run,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2404,Horizon / unresolved active diagnostic,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2408,Copy-paste containment report,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2413,Simulator logic,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2414,How the simulator works,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2417,1. COVID comparator,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2424,2. Active scenario setup,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2455,3. Core simulation engine,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2462,4. Optional diagnostics,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2468,5. Outputs for exploration,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2474,Resumen de disponibilidad,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2478,"Scope, assumptions & limitations",yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2479,What this tool does,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2488,What this tool does not do,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2499,Deployment and stability checklist,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2502,Default assumptions registry,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2505,Bibliographic sources for current defaults,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2509,SEIRD and exposed-compartment assumptions,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2513,Dynamic module assumptions,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2517,Reference comparator metadata,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2520,Copy-paste scope report,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2524,R0 Analysis,yes,Seed extraction from UI block; review manually before final ES translation
+app_epidemiologic_v16_scenario_lab_step6b_basic_exposed_parameter.R,2527,R0 calculations,yes,Seed extraction from UI block; review manually before final ES translation

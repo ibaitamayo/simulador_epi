@@ -1,0 +1,251 @@
+first_line,visible_string_en,future_es_translation,context_note
+1844,Population epidemiological simulator with COVID reference comparator,,extracted from UI/report zones; review manually
+1845,"Configurable simulation against a COVID reference - R/Shiny tool for teaching, planning and visualization",,extracted from UI/report zones; review manually
+1845,color: #7F8C8D;,,extracted from UI/report zones; review manually
+1851,Simulation parameters,,extracted from UI/report zones; review manually
+1851,color: #34495E; font-weight: bold;,,extracted from UI/report zones; review manually
+1854,Detail level:,,extracted from UI/report zones; review manually
+1856,Guided basic mode,,extracted from UI/report zones; review manually
+1857,Complete technical mode,,extracted from UI/report zones; review manually
+1862,input.active_scenario_mode == 'complete',,extracted from UI/report zones; review manually
+1863,Show technical validation options,,extracted from UI/report zones; review manually
+1865,mode-box,,extracted from UI/report zones; review manually
+1867,input.active_scenario_mode == 'guided',,extracted from UI/report zones; review manually
+1869,advanced-note,,extracted from UI/report zones; review manually
+1869,"Shows only the main scenario controls. Seed, calibration, air traffic, robustness and technical controls remain in complete mode.",,extracted from UI/report zones; review manually
+1874,"Shows all technical controls: calibration, mobility, seed, robustness, dynamic parameters and diagnostics.",,extracted from UI/report zones; review manually
+1877,workflow-guide-box,,extracted from UI/report zones; review manually
+1880,Suggested order in basic mode,,extracted from UI/report zones; review manually
+1882,Choose the initial country or use the random-country button.,,extracted from UI/report zones; review manually
+1883,"Set initial expansion, exposed phase, active duration and average mortality.",,extracted from UI/report zones; review manually
+1884,Choose whether advantage variants and containment measures are included.,,extracted from UI/report zones; review manually
+1885,Set the simulation horizon and run the scenario.,,extracted from UI/report zones; review manually
+1886,"Explore the map, curves and comparator-based results.",,extracted from UI/report zones; review manually
+1891,Suggested order in complete mode,,extracted from UI/report zones; review manually
+1893,"Configure engine, age, seed and mobility when technical reproducibility is needed.",,extracted from UI/report zones; review manually
+1894,Set the pathogen-like scenario and dynamic parameters.,,extracted from UI/report zones; review manually
+1895,Enable calibration or robustness only if you will interpret diagnostics.,,extracted from UI/report zones; review manually
+1896,"Run the scenario and review maps, curves, reports and warnings.",,extracted from UI/report zones; review manually
+1897,Use copyable reports to compare runs.,,extracted from UI/report zones; review manually
+1901,fixed-ref-box,,extracted from UI/report zones; review manually
+1902,COVID comparator,,extracted from UI/report zones; review manually
+1902,color: #27AE60; font-weight: bold;,,extracted from UI/report zones; review manually
+1907,Reference comparator:,,extracted from UI/report zones; review manually
+1909,Automatic from active model,,extracted from UI/report zones; review manually
+1910,Basic Omicron SIRD RDS,,extracted from UI/report zones; review manually
+1911,Age-adjusted Omicron SIRD RDS,,extracted from UI/report zones; review manually
+1912,Age-adjusted Omicron SEIRD RDS,,extracted from UI/report zones; review manually
+1918,small-note,,extracted from UI/report zones; review manually
+1918,This comparator represents a theoretical SEIRD scenario with age effects applied to the model and international passenger traffic between countries. It describes the plausible model-based trajectory if the first variant had been Omicron and no containment measures had been applied at any point.,,extracted from UI/report zones; review manually
+1920,simulation-action-box,,extracted from UI/report zones; review manually
+1921,primary-run-button,,extracted from UI/report zones; review manually
+1922,Run simulation,,extracted from UI/report zones; review manually
+1922,btn btn-danger btn-lg,,extracted from UI/report zones; review manually
+1924,Automatically play animation after completion,,extracted from UI/report zones; review manually
+1925,secondary-action-row,,extracted from UI/report zones; review manually
+1926,Reset defaults,,extracted from UI/report zones; review manually
+1926,rotate-left,,extracted from UI/report zones; review manually
+1926,btn btn-default,,extracted from UI/report zones; review manually
+1927,Download results CSV,,extracted from UI/report zones; review manually
+1931,margin-top: 8px;,,extracted from UI/report zones; review manually
+1932,Apply Omicron reference to simulation,,extracted from UI/report zones; review manually
+1932,100%,,extracted from UI/report zones; review manually
+1935,Runs the calculation and displays the scenario maps.,,extracted from UI/report zones; review manually
+1936,status-details,,extracted from UI/report zones; review manually
+1937,Last simulation status,,extracted from UI/report zones; review manually
+1943,Model characteristics,,extracted from UI/report zones; review manually
+1946,Model type:,,extracted from UI/report zones; review manually
+1948,Basic aggregated model,,extracted from UI/report zones; review manually
+1949,Age-adjusted model,,extracted from UI/report zones; review manually
+1953,Technical validation options. Basic mode automatically uses the age-adjusted engine with differential mortality by age group.,,extracted from UI/report zones; review manually
+1956,Compartment structure:,,extracted from UI/report zones; review manually
+1958,SEIRD: includes prior exposed phase,,extracted from UI/report zones; review manually
+1959,SIRD: direct transition to active phase,,extracted from UI/report zones; review manually
+1964,input.model_structure == 'age_adjusted',,extracted from UI/report zones; review manually
+1967,Age-parameter mode:,,extracted from UI/report zones; review manually
+1969,Technical validation: same mortality in all groups,,extracted from UI/report zones; review manually
+1970,Recommended: age-differential mortality,,extracted from UI/report zones; review manually
+1974,Global age-mortality adjustment:,,extracted from UI/report zones; review manually
+1977,Age distribution:,,extracted from UI/report zones; review manually
+1979,Country-specific age pyramids,,extracted from UI/report zones; review manually
+1980,Average global pyramid,,extracted from UI/report zones; review manually
+1984,Country-specific mode reads country_age_distribution_wpp2024_6groups.rds/csv when available. The global pyramid remains a technical validation option.,,extracted from UI/report zones; review manually
+1989,Country where the infection originates,,extracted from UI/report zones; review manually
+1989,color: #2E86C1; font-weight: bold;,,extracted from UI/report zones; review manually
+1994,Advanced initial-country selection mode:,,extracted from UI/report zones; review manually
+1996,Random on each run,,extracted from UI/report zones; review manually
+1997,Stable random with seed,,extracted from UI/report zones; review manually
+1998,Manually selected country,,extracted from UI/report zones; review manually
+2003,Country where the infection originates:,,extracted from UI/report zones; review manually
+2006,Choose random country,,extracted from UI/report zones; review manually
+2006,btn btn-outline-primary btn-sm,,extracted from UI/report zones; review manually
+2007,"In basic mode you can choose the country manually or use this button to select one at random. The seed remains hidden, but is stored internally for later comparison and export.",,extracted from UI/report zones; review manually
+2011,"In complete mode you can use manual, random, or stable random selection with visible seed.",,extracted from UI/report zones; review manually
+2013,Initial number of cases:,,extracted from UI/report zones; review manually
+2018,International air-traffic scenario:,,extracted from UI/report zones; review manually
+2020,Restricted traffic (25% of reference),,extracted from UI/report zones; review manually
+2021,Reduced traffic (60% of reference),,extracted from UI/report zones; review manually
+2022,Reference traffic (100%),,extracted from UI/report zones; review manually
+2023,High / holiday traffic (150%),,extracted from UI/report zones; review manually
+2027,Imported-establishment opportunity modifier:,,extracted from UI/report zones; review manually
+2028,Multiplier applied to the aggregate opportunity for an international entry to generate local transmission. 1.0 adds no extra attenuation.,,extracted from UI/report zones; review manually
+2031,input.active_scenario_mode == 'complete' && input.starting_country_mode != 'random_each_run',,extracted from UI/report zones; review manually
+2032,Seed for reproducibility (blank = random):,,extracted from UI/report zones; review manually
+2033,"Use a fixed seed for reproducible stochastic simulation runs. This is useful even when the starting country is manually selected, because other stochastic components can still vary. If 'Seeded random, stable' is selected with a blank seed, the run is not reproducible and this will be flagged in the report.",,extracted from UI/report zones; review manually
+2037,Pathogen-like scenario,,extracted from UI/report zones; review manually
+2037,color: #E74C3C; font-weight: bold;,,extracted from UI/report zones; review manually
+2038,Initial expansion capacity (R0/Rt):,,extracted from UI/report zones; review manually
+2039,Initial aggregate expansion value. Higher values mean faster expansion when no reducing measures are applied.,,extracted from UI/report zones; review manually
+2040,Active-phase duration (days):,,extracted from UI/report zones; review manually
+2043,Exposed phase before active transmission (days):,,extracted from UI/report zones; review manually
+2049,"SEIRD uses E = exposed phase: people already incorporated into the modelled infection process, but not yet in the active/transmitting phase. The default 4-day value is an Omicron-like teaching/planning assumption; try 3-5 days for sensitivity analysis.",,extracted from UI/report zones; review manually
+2054,Transmission profile during that period:,,extracted from UI/report zones; review manually
+2056,Intermediatete peak,,extracted from UI/report zones; review manually
+2057,Early peak,,extracted from UI/report zones; review manually
+2058,Late peak,,extracted from UI/report zones; review manually
+2059,Flat distribution,,extracted from UI/report zones; review manually
+2063,Defines how transmission contribution is distributed during the active period. Basic mode uses the default value.,,extracted from UI/report zones; review manually
+2065,Average mortality (%):,,extracted from UI/report zones; review manually
+2066,Target average among resolved cases. The app distributes it by age using each country's age structure. Very high values are treated as extreme scenarios.,,extracted from UI/report zones; review manually
+2069,Emergence of advantage variants,,extracted from UI/report zones; review manually
+2069,color: #9B59B6; font-weight: bold;,,extracted from UI/report zones; review manually
+2074,Emergence of advantage variants:,,extracted from UI/report zones; review manually
+2083,"Controls aggregate emergence of variants with population-level advantage. It is stochastic: a single run does not guarantee strict ordering between low, intermediate and high.",,extracted from UI/report zones; review manually
+2089,Dynamic variant module:,,extracted from UI/report zones; review manually
+2092,Active for this simulation,,extracted from UI/report zones; review manually
+2096,Complete mode shows technical parameters of the dynamic module. It applies only to the configurable simulation.,,extracted from UI/report zones; review manually
+2098,input.evolution_module_mode == 'active',,extracted from UI/report zones; review manually
+2099,Macro-effective replacement-opportunity rate:,,extracted from UI/report zones; review manually
+2100,Aggregate scenario parameter. It is not a molecular per-base rate; it scales population-level replacement opportunities inside the model.,,extracted from UI/report zones; review manually
+2101,Population-opportunity multiplier:,,extracted from UI/report zones; review manually
+2104,Macroscopic variant-emergence calibration:,,extracted from UI/report zones; review manually
+2107,Macro reference for RNA viruses,,extracted from UI/report zones; review manually
+2108,High incidence / pandemic scale,,extracted from UI/report zones; review manually
+2112,Maximum R0/Rt multiplier versus initial variant:,,extracted from UI/report zones; review manually
+2113,"This limit avoids unrealistic cumulative inflation. Effective R0/Rt is frequency-weighted by variants. It is a scenario bound, not a prediction.",,extracted from UI/report zones; review manually
+2118,Containment measures,,extracted from UI/report zones; review manually
+2118,color: #7D3C98; font-weight: bold;,,extracted from UI/report zones; review manually
+2121,Measure intensity:,,extracted from UI/report zones; review manually
+2123,No measures,,extracted from UI/report zones; review manually
+2133,Where measures are applied:,,extracted from UI/report zones; review manually
+2135,Global: all countries,,extracted from UI/report zones; review manually
+2136,By continent,,extracted from UI/report zones; review manually
+2137,By selected countries,,extracted from UI/report zones; review manually
+2142,input.containment_geographic_scope == 'continent',,extracted from UI/report zones; review manually
+2143,Affected continents:,,extracted from UI/report zones; review manually
+2146,input.containment_geographic_scope == 'countries',,extracted from UI/report zones; review manually
+2147,Affected countries:,,extracted from UI/report zones; review manually
+2149,Start day of measures:,,extracted from UI/report zones; review manually
+2150,End day of measures:,,extracted from UI/report zones; review manually
+2152,input.containment_preset == 'custom',,extracted from UI/report zones; review manually
+2153,Local transmission reduction (%):,,extracted from UI/report zones; review manually
+2154,Between-country mobility reduction (%):,,extracted from UI/report zones; review manually
+2158,Measure-period label:,,extracted from UI/report zones; review manually
+2158,Containment period,,extracted from UI/report zones; review manually
+2160,"Definitions: Mild = partial reduction in transmission and mobility. Moderate = intermediate package. Strong = temporary high-intensity reduction. Measures apply only to the configurable simulation, not to the comparator.",,extracted from UI/report zones; review manually
+2163,Simulation horizon,,extracted from UI/report zones; review manually
+2164,Simulated days:,,extracted from UI/report zones; review manually
+2167,Plot scale:,,extracted from UI/report zones; review manually
+2167,Percentage of world population,,extracted from UI/report zones; review manually
+2173,Representativeness and calibration,,extracted from UI/report zones; review manually
+2173,color: #1F618D; font-weight: bold;,,extracted from UI/report zones; review manually
+2174,Show calibration diagnostics,,extracted from UI/report zones; review manually
+2175,Reference population for calibration:,,extracted from UI/report zones; review manually
+2176,Observed cumulative positives (absolute number):,,extracted from UI/report zones; review manually
+2177,User-specified detection fraction (0-1):,,extracted from UI/report zones; review manually
+2178,Estimate detection fraction using seroprevalence and positives,,extracted from UI/report zones; review manually
+2179,Observation day for cumulative positives:,,extracted from UI/report zones; review manually
+2180,"Lag from underlying event to positive record (days; default 5, plausible range 3-7):",,extracted from UI/report zones; review manually
+2181,Observed seroprevalence (% of reference population):,,extracted from UI/report zones; review manually
+2182,Observation day for seroprevalence:,,extracted from UI/report zones; review manually
+2183,"Lag from underlying event to serology signal (days; default 26, plausible range 18-30):",,extracted from UI/report zones; review manually
+2184,Estimate calendar date for simulated day 0,,extracted from UI/report zones; review manually
+2185,Calendar date of cumulative-positive observation:,,extracted from UI/report zones; review manually
+2185,yyyy-mm-dd,,extracted from UI/report zones; review manually
+2186,Calendar date of seroprevalence observation:,,extracted from UI/report zones; review manually
+2187,Diagnostic only: these inputs do not change the simulated trajectory. They compare positives and seroprevalence with lag-adjusted cumulative outputs and estimate an implied detection fraction.,,extracted from UI/report zones; review manually
+2191,Explicit model assumptions,,extracted from UI/report zones; review manually
+2191,font-weight: bold;,,extracted from UI/report zones; review manually
+2197,World map,,extracted from UI/report zones; review manually
+2198,Initial connectivity before simulation,,extracted from UI/report zones; review manually
+2199,map-preview-box,,extracted from UI/report zones; review manually
+2200,Show initial connectivity of selected country,,extracted from UI/report zones; review manually
+2202,input.show_connectivity_preview == true,,extracted from UI/report zones; review manually
+2203,Shows the 15 main connections of the initial country. Line width represents the relative aggregate mobility weight used by the model.,,extracted from UI/report zones; review manually
+2207,Geographic evolution during simulation,,extracted from UI/report zones; review manually
+2209,padding: 10px; margin-bottom: 10px; background: #F8F9F9; border-left: 4px solid #3498DB;,,extracted from UI/report zones; review manually
+2210,Simulation day:,,extracted from UI/report zones; review manually
+2211,Start animation,,extracted from UI/report zones; review manually
+2212,Pause animation,,extracted from UI/report zones; review manually
+2216,Active by country,,extracted from UI/report zones; review manually
+2217,Cumulative deaths by country,,extracted from UI/report zones; review manually
+2222,Global results,,extracted from UI/report zones; review manually
+2227,Peak timing,,extracted from UI/report zones; review manually
+2231,Scenario lab,,extracted from UI/report zones; review manually
+2232,scenario-lab-box,,extracted from UI/report zones; review manually
+2233,Save and compare scenarios,,extracted from UI/report zones; review manually
+2234,"Save the current simulation, restore configurations and compare main results. Exportable cards are designed for teaching, scenario discussion and meso-management.",,extracted from UI/report zones; review manually
+2237,Start from a preset scenario:,,extracted from UI/report zones; review manually
+2239,Keep current settings,,extracted from UI/report zones; review manually
+2240,No containment baseline,,extracted from UI/report zones; review manually
+2241,Early moderate containment,,extracted from UI/report zones; review manually
+2242,Late moderate containment,,extracted from UI/report zones; review manually
+2243,Strong containment,,extracted from UI/report zones; review manually
+2244,High replacement pressure,,extracted from UI/report zones; review manually
+2245,High mobility without containment,,extracted from UI/report zones; review manually
+2249,Apply preset,,extracted from UI/report zones; review manually
+2249,wand-magic-sparkles,,extracted from UI/report zones; review manually
+2250,scenario-preset-note,,extracted from UI/report zones; review manually
+2250,Preset scenarios are starting points for exploration. They change visible controls but do not alter the model engine.,,extracted from UI/report zones; review manually
+2251,Scenario name:,,extracted from UI/report zones; review manually
+2251,Scenario A,,extracted from UI/report zones; review manually
+2254,Scenario label:,,extracted from UI/report zones; review manually
+2257,Early containment,,extracted from UI/report zones; review manually
+2258,Late containment,,extracted from UI/report zones; review manually
+2259,High mobility,,extracted from UI/report zones; review manually
+2260,Variant pressure,,extracted from UI/report zones; review manually
+2261,Sensitivity analysis,,extracted from UI/report zones; review manually
+2262,Teaching example,,extracted from UI/report zones; review manually
+2266,scenario-action-row,,extracted from UI/report zones; review manually
+2267,Save scenario,,extracted from UI/report zones; review manually
+2267,btn btn-primary,,extracted from UI/report zones; review manually
+2268,Duplicate selected,,extracted from UI/report zones; review manually
+2269,Restore configuration,,extracted from UI/report zones; review manually
+2270,Delete selected,,extracted from UI/report zones; review manually
+2273,Saved scenario:,,extracted from UI/report zones; review manually
+2275,Export HTML card,,extracted from UI/report zones; review manually
+2276,Export JSON,,extracted from UI/report zones; review manually
+2277,Export CSV table,,extracted from UI/report zones; review manually
+2278,Compare with current,,extracted from UI/report zones; review manually
+2278,chart-line,,extracted from UI/report zones; review manually
+2281,Import JSON configuration:,,extracted from UI/report zones; review manually
+2281,application/json,,extracted from UI/report zones; review manually
+2282,Load imported configuration,,extracted from UI/report zones; review manually
+2285,Exploration prompts,,extracted from UI/report zones; review manually
+2287,Can you delay the active peak without increasing final deaths?,,extracted from UI/report zones; review manually
+2288,What changes more when containment starts late: peak timing or final mortality?,,extracted from UI/report zones; review manually
+2289,Which starting countries accelerate global spread under the same seed?,,extracted from UI/report zones; review manually
+2290,How much does the exposed compartment change the curve compared with SIRD?,,extracted from UI/report zones; review manually
+2291,Does stronger replacement pressure change one run or the distribution across seeds?,,extracted from UI/report zones; review manually
+2296,Selected scenario card,,extracted from UI/report zones; review manually
+2300,A/B/C comparison,,extracted from UI/report zones; review manually
+2305,Compared curves,,extracted from UI/report zones; review manually
+2307,Export comparison CSV,,extracted from UI/report zones; review manually
+2308,Export comparison HTML,,extracted from UI/report zones; review manually
+2312,Scenario library,,extracted from UI/report zones; review manually
+2316,Variant dynamics,,extracted from UI/report zones; review manually
+2317,Variant Frequency Over Time,,extracted from UI/report zones; review manually
+2320,Candidate Mutations and Established Variants,,extracted from UI/report zones; review manually
+2323,Variant emergence plausibility check,,extracted from UI/report zones; review manually
+2324,Dynamic diagnostics,,extracted from UI/report zones; review manually
+2327,Dynamic preset robustness across seeds,,extracted from UI/report zones; review manually
+2328,"Optional diagnostic: runs Low, Reference and High opportunity-pressure presets across multiple seeds. This evaluates presets in distribution, not as a single deterministic run.",,extracted from UI/report zones; review manually
+2329,Replicates per preset:,,extracted from UI/report zones; review manually
+2330,Run dynamic robustness check,,extracted from UI/report zones; review manually
+2332,Global High vs Reference comparison,,extracted from UI/report zones; review manually
+2335,Plausibility diagnostic,,extracted from UI/report zones; review manually
+2337,"This is a macroscopic calibration diagnostic. It does not model biological modification, laboratory selection, or mechanisms of altering a pathogen.",,extracted from UI/report zones; review manually
+2339,Selective sweep analysis,,extracted from UI/report zones; review manually
+2343,Country-level spread,,extracted from UI/report zones; review manually
+2344,Infection distribution by country,,extracted from UI/report zones; review manually
+2347,Countries reached over time,,extracted from UI/report zones; review manually
