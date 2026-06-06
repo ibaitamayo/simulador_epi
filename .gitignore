@@ -19,3 +19,15 @@ __pycache__/
 
 .Rproj.user/
 .Rhistory
+
+# Local snapshots/backups
+snapshots/
+
+# R session files
+.RData
+.Ruserdata
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
