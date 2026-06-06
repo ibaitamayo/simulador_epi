@@ -31,3 +31,6 @@ snapshots/
 *.tmp
 *.bak
 *.swp
+
+# Generated regression outputs
+tests/regression/reports/
