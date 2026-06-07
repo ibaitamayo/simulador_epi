@@ -1,6 +1,6 @@
-AGE_DISTRIBUTION_RDS_FILE <- "country_age_distribution_wpp2024_6groups.rds"
-AGE_DISTRIBUTION_CSV_FILE <- "country_age_distribution_wpp2024_6groups.csv"
-WORLD_COUNTRY_POLYGONS_RDS_FILE <- "world_countries_simplified.rds"
+AGE_DISTRIBUTION_RDS_FILE <- "inst/data/country_age_distribution_wpp2024_6groups.rds"
+AGE_DISTRIBUTION_CSV_FILE <- "inst/data/country_age_distribution_wpp2024_6groups.csv"
+WORLD_COUNTRY_POLYGONS_RDS_FILE <- "inst/data/world_countries_simplified.rds"
 
 # Data-loading and file-location helpers extracted from v17 freeze.
 # Do not translate function names or internal identifiers.
