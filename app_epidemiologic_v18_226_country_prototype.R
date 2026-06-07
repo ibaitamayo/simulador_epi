@@ -3113,51 +3113,40 @@ get_dynamic_config <- function() {
   # available and selected in the UI. Neither comparator is recomputed when the
   # user clicks Calculate simulation.
   locate_reference_rds <- function(filename) {
-    candidate_dirs <- unique(c(
-      tryCatch(dirname(normalizePath(sys.frames()[[1]]$ofile)), error = function(e) NA_character_),
-      getwd(),
-      Sys.getenv("EPIDEM_REFERENCE_DIR", unset = NA_character_)
-    ))
-    candidate_dirs <- candidate_dirs[!is.na(candidate_dirs) & nzchar(candidate_dirs)]
-    direct <- file.path(candidate_dirs, filename)
-    hit <- direct[file.exists(direct)]
-    if (length(hit) > 0) return(normalizePath(hit[1], winslash = "/", mustWork = FALSE))
-    recursive_hits <- unlist(lapply(candidate_dirs, function(d) {
-      if (!dir.exists(d)) return(character())
-      list.files(d, pattern = paste0("^", gsub("\\.", "\\\\.", filename), "$"), recursive = TRUE, full.names = TRUE)
-    }), use.names = FALSE)
-    if (length(recursive_hits) > 0) return(normalizePath(recursive_hits[1], winslash = "/", mustWork = FALSE))
-    NA_character_
+
+    candidates <- c(
+      file.path("inst", "data", filename),
+      filename
+    )
+
+    existing <- candidates[file.exists(candidates)]
+
+    if (length(existing) == 0) {
+      return(NA_character_)
+    }
+
+    existing[[1]]
   }
 
-  required_reference_elements <- c(
-    "data", "R0_history", "country_history", "death_country_history",
-    "new_country_import_history", "expected_import_history",
-    "infectious_pressure_history", "variants_emerged",
-    "variant_frequency_history", "first_reached_day",
-    "passenger_matrix_annual"
-  )
+  load_fixed_reference_cache <- function(path, reference_type = NULL) {
 
-  load_fixed_reference_cache <- function(path, reference_type = "basic") {
-    ref <- readRDS(path)
-    missing_reference_elements <- setdiff(required_reference_elements, names(ref))
-    if (length(missing_reference_elements) > 0) {
-      stop(
-        paste0(
-          "The precomputed COVID-19 Omicron reference RDS is incomplete. Missing elements: ",
-          paste(missing_reference_elements, collapse = ", ")
-        ),
-        call. = FALSE
-      )
+    if (is.null(path) || length(path) == 0 || is.na(path) || !file.exists(path)) {
+      return(NULL)
     }
-    ref$metrics <- calculate_metrics(ref$data, WORLD_POPULATION)
-    if (is.null(ref$R0)) ref$R0 <- 4.25
-    if (is.null(ref$final_R0)) ref$final_R0 <- ref$R0
-    if (is.null(ref$total_variants)) ref$total_variants <- max(0, nrow(ref$variants_emerged) - 1)
-    ref$color <- "#27AE60"
-    ref$reference_type <- reference_type
-    ref$reference_file <- path
-    ref
+
+    cache <- readRDS(path)
+
+    if (!is.list(cache)) {
+      cache <- list(data = cache)
+    }
+
+    cache$reference_file <- basename(path)
+
+    if (!is.null(reference_type)) {
+      cache$reference_type <- reference_type
+    }
+
+    cache
   }
 
   fixed_covid_reference_basic_file <- locate_reference_rds("fixed_covid_omicron_reference_age_adjusted_seird.rds")
