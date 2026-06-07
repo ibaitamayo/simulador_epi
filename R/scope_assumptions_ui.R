@@ -9,7 +9,7 @@ scope_assumptions_limitations_tab <- function() {
       tags$li("Explores aggregate geographic spread through a passenger-mobility matrix."),
       tags$li("Allows age-group CFR weighting, containment scenarios, calibration diagnostics and map-based visualization."),
       tags$li("Estimates diagnostic gaps between simulated cumulative outputs, observed positives and seroprevalence inputs."),
-      tags$li("Reports computational cost, unresolved active-state diagnostics and copy-paste evaluation summaries.")
+      tags$li("Reports computational cost, calibration diagnostics, robustness analyses and scenario summaries.")
     ),
 
     h4("What this tool does not do"),

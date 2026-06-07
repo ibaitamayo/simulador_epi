@@ -23,6 +23,7 @@ source("R/calibration_ui.R")
 source("R/containment_ui.R")
 source("R/mobility_data.R")
 source("R/scope_assumptions_ui.R")
+source("R/documentation_tables_runtime.R")
 source("R/data_loading_helpers.R")
 source("R/diagnostics_helpers.R")
 
@@ -169,6 +170,14 @@ COUNTRY_TRAVEL_PARAMS <- data.frame(
 # These are intended as epidemiological transport weights, not official legal statistics.
 # Passenger traffic network loaded from external data
 PASSENGER_TRAFFIC_EDGES <- load_passenger_traffic_edges()
+
+DEFAULT_ASSUMPTIONS_REGISTRY_TEMPLATE <- readRDS(
+  "inst/data/default_assumptions_registry_template.rds"
+)
+
+DEFAULT_BIBLIOGRAPHY_TABLE <- readRDS(
+  "inst/data/default_bibliography_table.rds"
+)
 
 # ============================================================================
 # HELPER FUNCTIONS
@@ -1667,7 +1676,7 @@ get_dynamic_config <- function() {
   })
 
   output$covid_reference_card <- renderUI({
-    ref_file <- tryCatch(basename(selected_fixed_reference_file()), error = function(e) "fixed_covid_omicron_reference_sir.rds")
+    ref_file <- tryCatch(basename(selected_fixed_reference_file()), error = function(e) "fixed_covid_omicron_reference_age_adjusted_seird.rds")
     ref_type <- tryCatch(selected_fixed_reference_type(), error = function(e) "basic")
     fallback_note <- tryCatch(selected_fixed_reference_fallback_note(), error = function(e) "")
 
@@ -1721,282 +1730,6 @@ get_dynamic_config <- function() {
     )
   })
 
-  build_default_assumptions_registry <- function() {
-    data.frame(
-      Parameter = c(
-        "fixed_covid_rds",
-        "active_scenario_default_engine",
-        "R0_input",
-        "infectious_window_days",
-        "infectiousness_profile",
-        "mortality_rate_default_guided",
-        "age_group_structure",
-        "age_group_CFR_profile",
-        "case_detection_fraction",
-        "positive_lag_days",
-        "seroprevalence_lag_days",
-        "air_travel_scenario",
-        "import_establishment_probability",
-        "containment_mild",
-        "containment_moderate",
-        "containment_strong",
-        "containment_geographic_scope",
-        "mutation_rate_per_replication",
-        "effective_mutation_targets",
-        "map_scaling",
-        "animation_interval_ms"
-      ),
-      Current_value = c(
-        "fixed_covid_omicron_reference_sir.rds",
-        "age-adjusted model with differential CFR in guided mode",
-        as.character(isolate(input$R0)),
-        as.character(isolate(input$infectious_period_days)),
-        as.character(isolate(input$infectiousness_profile)),
-        paste0(as.character(isolate(input$mortality_rate)), "%"),
-        "6 age groups: 0-9, 10-19, 20-39, 40-59, 60-79, 80+",
-        "Levin-style age gradient scaled to weighted global target",
-        as.character(isolate(input$case_detection_fraction)),
-        as.character(isolate(input$positive_lag_days)),
-        as.character(isolate(input$seroprevalence_lag_days)),
-        as.character(isolate(input$air_travel_scenario)),
-        as.character(isolate(input$import_establishment_probability)),
-        "25% transmission reduction; 20% mobility reduction",
-        "50% transmission reduction; 50% mobility reduction",
-        "75% transmission reduction; 75% mobility reduction",
-        as.character(isolate(input$containment_geographic_scope)),
-        as.character(isolate(input$mutation_rate_per_replication)),
-        as.character(isolate(input$effective_mutation_targets)),
-        "pseudo-log marker scaling with minimum visible radius when boost is enabled",
-        "100"
-      ),
-      Unit = c(
-        "file",
-        "model route",
-        "dimensionless",
-        "days",
-        "category",
-        "percent",
-        "groups",
-        "proportion",
-        "proportion 0-1",
-        "days",
-        "days",
-        "category",
-        "multiplier",
-        "percent",
-        "percent",
-        "percent",
-        "scope",
-        "per replication",
-        "count",
-        "visual rule",
-        "milliseconds"
-      ),
-      Used_in = c(
-        "comparator",
-        "active scenario",
-        "transmission",
-        "state duration",
-        "temporal profile",
-        "age-adjusted CFR scaling",
-        "age-adjusted engine",
-        "age-adjusted engine",
-        "calibration diagnostics",
-        "calibration diagnostics",
-        "calibration diagnostics",
-        "mobility matrix",
-        "imported-opportunity term",
-        "containment preset",
-        "containment preset",
-        "containment preset",
-        "containment module",
-        "dynamic module",
-        "dynamic module",
-        "map visualization",
-        "animation"
-      ),
-      Status = c(
-        "technical default",
-        "reviewed architecture",
-        "scenario parameter",
-        "reviewed/provisional",
-        "reviewed/provisional",
-        "reviewed/provisional",
-        "provisional",
-        "reviewed/provisional",
-        "reviewed/provisional",
-        "reviewed/provisional",
-        "reviewed/provisional",
-        "scenario preset",
-        "scenario preset",
-        "scenario preset",
-        "scenario preset",
-        "scenario preset",
-        "reviewed architecture",
-        "needs literature review",
-        "needs literature review",
-        "technical default",
-        "technical default"
-      ),
-      Plausible_range_or_default_context = c(
-        "not applicable",
-        "not applicable",
-        "scenario-specific",
-        "5 days for Omicron-like; 7-10 days for early-lineage-like scenarios",
-        "early/mid/flat/late as scenario kernels",
-        "~0.1-1% global target for COVID-like guided scenarios; higher values are stress-test scenarios",
-        "6 broad teaching/planning groups",
-        "very low in young groups; steep age gradient; scaled to selected global target",
-        "context dependent; app default 0.20; serology-implied value can be calculated",
-        "3-7 days; default 5",
-        "18-30 days; default 26",
-        "scenario-specific",
-        "0-1",
-        "low-intensity package",
-        "intermediate package",
-        "high-intensity package",
-        "global / continent / selected countries",
-        "pending",
-        "pending",
-        "not applicable",
-        "100-1000 ms depending on browser load"
-      ),
-      Source_or_review_status = c(
-        "Generated outside Shiny; loaded at runtime",
-        "Internal architecture decision",
-        "Preset-specific parameter; user-editable",
-        "Xu et al. 2023 supports shorter Omicron intervals; early-lineage defaults still provisional",
-        "Temporal kernel is a modelling choice; interval evidence informs plausible windows",
-        "Default reduced to 1%; age gradient contextualised with Levin et al. 2020",
-        "Simplified global age structure; pending country-specific refinement",
-        "Levin et al. 2020 age-specific IFR gradient; scaled in-app to selected global target",
-        "ENE-COVID supports under-detection; user value can be compared with serology-implied fraction",
-        "Approximate interval from underlying event to recorded positive count; supported by incubation/testing timing literature; shorter for Omicron-like scenarios",
-        "Approximate interval from underlying event to detectable serological signal; IgM/IgG timing varies by assay, symptoms, severity and sampling design",
-        "Scenario input; guided mode hides advanced traffic choice",
-        "Scenario input; guided mode hides advanced import modifier",
-        "Scenario preset; literature supports broad effect ranges rather than one fixed value",
-        "Scenario preset; literature supports broad effect ranges rather than one fixed value",
-        "Scenario preset; literature supports broad effect ranges rather than one fixed value",
-        "Internal architecture decision",
-        "Placeholder macro-parameter; pending targeted review",
-        "Placeholder macro-parameter; pending targeted review",
-        "Visualization choice",
-        "Visualization choice"
-      ),
-      Reference_link = c(
-        "local RDS file",
-        "internal",
-        "preset/user-defined",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10541713/",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10541713/",
-        "https://link.springer.com/article/10.1007/s10654-020-00698-1",
-        "pending",
-        "https://link.springer.com/article/10.1007/s10654-020-00698-1",
-        "https://pubmed.ncbi.nlm.nih.gov/32645347/",
-        "https://www.cdc.gov/covid/hcp/clinical-care/covid19-presentation.html",
-        "https://www.nature.com/articles/s41598-021-82428-5",
-        "https://www.google.com/covid19/mobility/",
-        "scenario/user-defined",
-        "scenario preset; see containment literature notes",
-        "scenario preset; see containment literature notes",
-        "scenario preset; see containment literature notes",
-        "internal",
-        "pending",
-        "pending",
-        "internal",
-        "internal"
-      ),
-      Comment = c(
-        "The comparator is not recalculated when running the active scenario.",
-        "Basic and neutral engines remain available only for technical validation.",
-        "Should be preset-specific in final guided mode.",
-        "Guided value remains editable; Omicron comparator uses 5 days.",
-        "Defines distribution across active-state days.",
-        "Accessible in guided mode; high values are allowed for stress testing but flagged as extreme.",
-        "Currently global, not country-specific.",
-        "Levin values provide context; the app scales the profile to the selected global target.",
-        "Observed positives are compared after multiplying simulated cumulative by this fraction.",
-        "Observed positives are shifted backward by this lag. This is a calibration parameter, not a fixed biological constant.",
-        "Seroprevalence is shifted backward by this lag. This is a calibration parameter, not a fixed biological constant.",
-        "Hidden in guided mode; visible in advanced mode.",
-        "Hidden in guided mode; visible in advanced mode.",
-        "Applies only to active scenario.",
-        "Applies only to active scenario.",
-        "Applies only to active scenario.",
-        "Global, continent or selected-country scope.",
-        "Currently active only where the dynamic module is enabled.",
-        "Currently active only where the dynamic module is enabled.",
-        "Improves early-map readability; does not change calculations.",
-        "Can be revisited if browser load increases."
-      ),
-      stringsAsFactors = FALSE
-    )
-  }
-
-  build_default_bibliography_table <- function() {
-    data.frame(
-      Topic = c(
-        "Age-specific CFR/IFR context",
-        "Temporal intervals / Omicron shorter timing",
-        "Positive-record lag / incubation and testing timing",
-        "IgM/IgG seroconversion timing",
-        "Longer serology window context",
-        "Detection fraction and serology/PCR gap",
-        "Seroprevalence example context",
-        "Mobility data context",
-        "Containment scenario ranges",
-        "Dynamic module macro-effective rate context",
-        "Dynamic module R0 cap context",
-        "Dynamic module target definition"
-      ),
-      Source = c(
-        "Levin AT, Cochran KB, Walsh SP. Assessing the age specificity of infection fatality rates for COVID-19. Eur J Epidemiol. 2020.",
-        "Xu X et al. Assessing changes in incubation period, serial interval, and generation time of SARS-CoV-2 variants of concern: systematic review and meta-analysis. 2023.",
-        "CDC clinical presentation summary and variant timing literature. Omicron incubation is shorter than early-lineage SARS-CoV-2; earlier estimates commonly centred near 5 days.",
-        "Nakano Y et al. Time course of anti-SARS-CoV-2 antibody sensitivity/specificity after symptom onset; median IgM/IgG seroconversion often 10 days or longer after symptom onset.",
-        "Long-term seroprevalence literature reports IgM/IgG increasing markedly by about 2 weeks after symptom onset, while timing varies across assays and populations.",
-        "Pollan M et al. Prevalence of SARS-CoV-2 in Spain (ENE-COVID): nationwide population-based seroepidemiological study. Lancet. 2020.",
-        "ENE-COVID public communications and article context for early Spanish seroprevalence around 5%, with territorial variation.",
-        "Google COVID-19 Community Mobility Reports: historical aggregated mobility trends, no longer updated after 2022-10-15.",
-        "Published policy-effect literature reports heterogeneous reductions; app presets are scenario levels, not universal estimates.",
-        "Amicone et al. estimate SARS-CoV-2 mutation-rate order of magnitude around 1.3e-6 per base per infection cycle; the app uses this only as contextual scale, not as a direct per-base model parameter.",
-        "Omicron R0/Re estimates and variant-comparison literature show substantial relative changes in population Rt/R0; the app cap is frequency-weighted and not cumulative.",
-        "Internal model definition: population-level replacement opportunity multiplier are abstract transmission-relevant opportunities used to scale candidate generation; they are not nucleotide sites or genome length."
-      ),
-      Link = c(
-        "https://link.springer.com/article/10.1007/s10654-020-00698-1",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10541713/",
-        "https://www.cdc.gov/covid/hcp/clinical-care/covid19-presentation.html",
-        "https://www.nature.com/articles/s41598-021-82428-5",
-        "https://link.springer.com/article/10.1186/s12879-023-08425-3",
-        "https://pubmed.ncbi.nlm.nih.gov/32645347/",
-        "https://www.lamoncloa.gob.es/lang/en/gobierno/news/Paginas/2020/06072020_serostudy-.aspx",
-        "https://www.google.com/covid19/mobility/",
-        "https://www.nature.com/articles/s41598-021-81442-x",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8996265/",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8992231/",
-        "Internal model definition"
-      ),
-      How_used_in_app = c(
-        "Provides age-gradient context; guided global mortality default lowered to 1%, with age-specific scaling visible in the assumptions tab.",
-        "Supports shorter Omicron timing and informs active-window/profile documentation.",
-        "Supports keeping positive_lag_days as a calibration default of 5 days with plausible range 3-7 days.",
-        "Supports seroprevalence_lag_days as a calibration default of 26 days with plausible range 18-30 days.",
-        "Used to document that serology lag is an approximate calibration parameter, not a universal constant.",
-        "Supports explicit detection-fraction diagnostics and under-detection explanation.",
-        "Provides example seroprevalence context; not a universal default.",
-        "Supports separation of mobility reduction from transmission reduction.",
-        "Supports treating mild/moderate/strong as scenario presets over a broad plausible range.",
-        "Supports order-of-magnitude context for the macro-effective opportunity rate; values remain scenario presets requiring calibration.",
-        "Supports a guided high cap of 1.65 as a plausible stress-test bound rather than 2.0; advanced mode can still explore higher caps.",
-        "Defines targets as an abstract scaling factor for candidate generation, not a biological sequence parameter."
-      ),
-      stringsAsFactors = FALSE
-    )
-  }
-
-
   output$deployment_checklist_table <- renderTable({
     data.frame(
       Item = c(
@@ -2030,13 +1763,14 @@ get_dynamic_config <- function() {
     )
   }, rownames = FALSE)
 
+
   output$default_assumptions_registry <- renderTable({
-    build_default_assumptions_registry()
+    update_default_assumptions_registry(DEFAULT_ASSUMPTIONS_REGISTRY_TEMPLATE, input)
   }, rownames = FALSE)
 
   output$default_bibliography_table <- renderTable({
     dplyr::bind_rows(
-      build_default_bibliography_table(),
+      DEFAULT_BIBLIOGRAPHY_TABLE,
       data.frame(
         Topic = c("SEIRD exposed-compartment default", "Omicron latent/incubation timing"),
         Source = c(
@@ -2180,27 +1914,7 @@ get_dynamic_config <- function() {
     )
   }, rownames = FALSE)
 
-  output$model_scope_report <- renderText({
-    reg <- build_default_assumptions_registry()
-    status_counts <- table(reg$Status)
-    status_line <- paste(paste(names(status_counts), as.integer(status_counts), sep = "="), collapse = ";")
-    lines <- c(
-      "MODEL_SCOPE_REPORT_START",
-      "tool_type=macroscopic_population_epidemiology_simulator",
-      "primary_use=teaching_planning_visualization_scenario_exploration",
-      "fixed_comparator=fixed_covid_omicron_reference_sir.rds",
-      "fixed_comparator_recomputed_on_run=FALSE",
-      paste0("active_scenario_mode=", isolate(input$active_scenario_mode)),
-      paste0("guided_mode_default_engine=age_adjusted_differential_cfr"),
-      paste0("technical_validation_visible=", isTRUE(isolate(input$show_technical_validation_options))),
-      "does=aggregate_SIRD_dynamics;geographic_spread;age_group_CFR;containment_scenarios;calibration_diagnostics;maps;cost_profile",
-      "does_not=predict_future_real_counts;replace_official_models;infer_policy_causality;use_individual_contacts;auto_optimize_parameters;reconstruct_history_exactly",
-      paste0("assumption_status_counts=", status_line),
-      paste0("bibliography_sources_listed=", nrow(build_default_bibliography_table())),
-      "MODEL_SCOPE_REPORT_END"
-    )
-    paste(lines, collapse = "\n")
-  })
+  # Legacy model_scope_report removed
 
 
   output$age_parameter_table <- renderTable({
@@ -3621,11 +3335,11 @@ get_dynamic_config <- function() {
     ref
   }
 
-  fixed_covid_reference_basic_file <- locate_reference_rds("fixed_covid_omicron_reference_sir.rds")
+  fixed_covid_reference_basic_file <- locate_reference_rds("fixed_covid_omicron_reference_age_adjusted_seird.rds")
   if (is.na(fixed_covid_reference_basic_file) || !file.exists(fixed_covid_reference_basic_file)) {
     stop(
       paste0(
-        "Missing mandatory precomputed COVID-19 Omicron reference file: fixed_covid_omicron_reference_sir.rds. ",
+        "Missing mandatory precomputed COVID-19 Omicron reference file: fixed_covid_omicron_reference_age_adjusted_seird.rds. ",
         "Generate it with generate_fixed_covid_omicron_reference_sir.R and place it in the app folder."
       ),
       call. = FALSE
