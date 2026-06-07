@@ -142,7 +142,7 @@ TRANSMISSION_EXAMPLE_REFERENCES <- load_transmission_example_references()
 validate_transmission_configuration(FALSE)
 
 COUNTRY_MASTER <- readRDS(
-  "docs/roadmap/country_master_2026_common_iso.rds"
+  "inst/data/country_master_2026_common_iso.rds"
 )
 
 COUNTRIES_LIST <- COUNTRY_MASTER$country
