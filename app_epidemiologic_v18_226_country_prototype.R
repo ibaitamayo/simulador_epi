@@ -610,7 +610,7 @@ ui <- fluidPage(
       ),
       hr(),
 
-      h4("Pathogen-like scenario", style = "color: #E74C3C; font-weight: bold;"),
+      h4("Aggregate transmission profile", style = "color: #E74C3C; font-weight: bold;"),
 
       div(class = "transmission-example-box",
         h4("Transmission Example", style = "color: #2E86C1; font-weight: bold;"),
@@ -1609,34 +1609,11 @@ get_dynamic_config <- function() {
 
     req(input$transmission_example_id)
 
-    md <- get_transmission_example_metadata(
-      input$transmission_example_id,
-      metadata = TRANSMISSION_EXAMPLE_METADATA
-    )
-
-    if (is.null(md)) {
-      return(NULL)
-    }
-
-    tagList(
-      tags$div(
-        style = "margin-top:8px;",
-        tags$b("Evidence status"),
-        tags$p(md$evidence_level)
-      ),
-
-      tags$div(
-        tags$b("Description"),
-        tags$p(md$description)
-      ),
-      tags$div(
-        tags$b("Scope"),
-        tags$p(md$scope)
-      ),
-      tags$div(
-        tags$b("Limitations"),
-        tags$p(md$limitations)
-      )
+    transmission_example_info_content(
+      example_id = input$transmission_example_id,
+      examples = TRANSMISSION_EXAMPLES,
+      metadata = TRANSMISSION_EXAMPLE_METADATA,
+      references = TRANSMISSION_EXAMPLE_REFERENCES
     )
 
   })
