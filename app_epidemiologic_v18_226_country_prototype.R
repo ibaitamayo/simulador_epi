@@ -18,6 +18,7 @@ source("R/chart_helpers.R")
 source("R/scenario_helpers.R")
 source("R/transmission_examples.R")
 source("R/transmission_examples_ui.R")
+source("R/reference_comparator_ui.R")
 source("R/calibration.R")
 source("R/calibration_ui.R")
 source("R/containment_ui.R")
@@ -491,7 +492,7 @@ ui <- fluidPage(
           )
         ),
         uiOutput("covid_reference_card"),
-        tags$p(class = "small-note", "This comparator represents a theoretical SEIRD scenario with age effects applied to the model and international passenger traffic between countries. It describes the plausible model-based trajectory if the first variant had been Omicron and no containment measures had been applied at any point.")
+        tags$p(class = "small-note", "Comparator details are shown on demand below.")
       ),
       div(class = "simulation-action-box",
         tags$div(class = "primary-run-button",
@@ -1654,58 +1655,34 @@ get_dynamic_config <- function() {
   })
 
   output$covid_reference_card <- renderUI({
-    ref_file <- tryCatch(basename(selected_fixed_reference_file()), error = function(e) "fixed_covid_omicron_reference_age_adjusted_seird.rds")
-    ref_type <- tryCatch(selected_fixed_reference_type(), error = function(e) "basic")
-    fallback_note <- tryCatch(selected_fixed_reference_fallback_note(), error = function(e) "")
 
-    ref_cache <- tryCatch(selected_fixed_reference_cache(), error = function(e) NULL)
-    ref_model <- if (!is.null(ref_cache$compartment_model)) ref_cache$compartment_model else ifelse(identical(ref_type, "age_adjusted_seird"), "SEIRD", "SIRD")
-    ref_exposed_period <- if (!is.null(ref_cache$exposed_period_days)) ref_cache$exposed_period_days else ifelse(identical(ref_model, "SEIRD"), 4, 0)
-    ref_peak_exposed <- NA
-    ref_peak_exposed_day <- NA
-    if (!is.null(ref_cache$data) && "E" %in% names(ref_cache$data)) {
-      eidx <- which.max(ref_cache$data$E)
-      ref_peak_exposed <- format(round(ref_cache$data$E[eidx]), big.mark = ",")
-      ref_peak_exposed_day <- ref_cache$data$time[eidx]
-    } else if (!is.null(ref_cache$exposed_country_history)) {
-      exposed_total <- rowSums(ref_cache$exposed_country_history, na.rm = TRUE)
-      eidx <- which.max(exposed_total)
-      ref_peak_exposed <- format(round(exposed_total[eidx]), big.mark = ",")
-      ref_peak_exposed_day <- eidx - 1
-    }
-
-    comparator_items <- list(
-      c("Type", dplyr::case_when(
-        identical(ref_type, "age_adjusted_seird") ~ "Age-adjusted Omicron SEIRD RDS",
-        identical(ref_type, "age_adjusted_sird") ~ "Age-adjusted Omicron SIRD RDS",
-        identical(ref_type, "age_adjusted") ~ "Age-adjusted Omicron SIRD RDS",
-        TRUE ~ "Basic Omicron SIRD RDS"
-      )),
-      c("Modelo", ref_model),
-      c("E: exposed phase", ifelse(identical(ref_model, "SEIRD"), paste0(ref_exposed_period, " days to active phase"), "Not applicable in SIRD")),
-      c("Peak E", ifelse(is.na(ref_peak_exposed), "Not available", paste0(ref_peak_exposed, " persons; day ", ref_peak_exposed_day))),
-      c("Reference", "COVID-19 Omicron"),
-      c("Starting country", "South Africa"),
-      c("R0", "4.25"),
-      c("Active window", "5 days"),
-      c("Engine", ifelse(grepl("age_adjusted", ref_type), "Age-adjusted differential CFR", "Basic aggregated reference"))
+    ref_type <- tryCatch(
+      selected_fixed_reference_type(),
+      error = function(e) "auto"
     )
-    if (!is.null(fallback_note) && nzchar(fallback_note)) {
-      comparator_items <- c(comparator_items, list(c("Fallback", fallback_note)))
-    }
 
-    tags$div(
-      class = "fixed-ref-card",
-      tags$div(
-        class = "fixed-ref-grid",
-        lapply(comparator_items, function(item) {
-          tagList(
-            tags$div(class = "fixed-ref-label", item[[1]]),
-            tags$div(class = "fixed-ref-value", item[[2]])
-          )
-        })
-      )
+    ref_cache <- tryCatch(
+      selected_fixed_reference_cache(),
+      error = function(e) NULL
     )
+
+    ref_file <- tryCatch(
+      basename(selected_fixed_reference_file()),
+      error = function(e) "fixed_covid_omicron_reference_age_adjusted_seird.rds"
+    )
+
+    fallback_note <- tryCatch(
+      selected_fixed_reference_fallback_note(),
+      error = function(e) NULL
+    )
+
+    reference_comparator_info_content(
+      ref_type = ref_type,
+      ref_cache = ref_cache,
+      ref_file = ref_file,
+      fallback_note = fallback_note
+    )
+
   })
 
   register_scope_assumptions_outputs(
