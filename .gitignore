@@ -34,3 +34,5 @@ snapshots/
 
 # Generated regression outputs
 tests/regression/reports/
+app.R
+rsconnect/
