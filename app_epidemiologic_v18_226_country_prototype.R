@@ -1169,23 +1169,6 @@ ui <- fluidPage(
         uiOutput("covid_reference_card"),
         tags$p(class = "small-note", "This comparator represents a theoretical SEIRD scenario with age effects applied to the model and international passenger traffic between countries. It describes the plausible model-based trajectory if the first variant had been Omicron and no containment measures had been applied at any point.")
       ),
-      div(class = "transmission-example-box",
-        h4("Transmission Example", style = "color: #2E86C1; font-weight: bold;"),
-        selectInput(
-          "transmission_example_id",
-          "Example:",
-          choices = stats::setNames(
-            TRANSMISSION_EXAMPLES$id,
-            TRANSMISSION_EXAMPLES$label
-          ),
-          selected = "generic"
-        ),
-        tags$p(
-          class = "small-note",
-          "Examples load documented starting configurations. All parameters remain editable."
-        )
-      ),
-
       div(class = "simulation-action-box",
         tags$div(class = "primary-run-button",
           actionButton("run_simulation", "Run simulation", icon = icon("play"), class = "btn btn-danger btn-lg")
@@ -1304,6 +1287,36 @@ ui <- fluidPage(
       hr(),
 
       h4("Pathogen-like scenario", style = "color: #E74C3C; font-weight: bold;"),
+
+      div(class = "transmission-example-box",
+        h4("Transmission Example", style = "color: #2E86C1; font-weight: bold;"),
+        selectInput(
+          "transmission_example_id",
+          "Example:",
+          choices = stats::setNames(
+            TRANSMISSION_EXAMPLES$id,
+            TRANSMISSION_EXAMPLES$label
+          ),
+          selected = "generic"
+        ),
+        tags$p(
+          class = "small-note",
+          "Examples load documented starting configurations. All parameters remain editable."
+        ),
+        uiOutput("transmission_example_status"),
+        tags$details(
+          style = "margin-top: 10px;",
+          tags$summary(
+            style = "cursor: pointer; color: #2E86C1; font-weight: 700; background-color: #EBF5FB; padding: 6px 8px; border-radius: 6px;",
+            "About this Example"
+          ),
+          tags$div(
+            style = "background-color: #F8FBFD; border-left: 3px solid #2E86C1; padding: 8px 10px; margin-top: 6px; border-radius: 4px;",
+            uiOutput("transmission_example_info")
+          )
+        )
+      ),
+
       numericInput("R0", "Initial expansion capacity (R0/Rt):", value = 5.0, min = 0.5, max = 15.0, step = 0.1),
       helpText("Initial aggregate expansion value. Higher values mean faster expansion when no reducing measures are applied."),
       numericInput("infectious_period_days", "Active-phase duration (days):", value = 20, min = 2, max = 60, step = 1),
@@ -1806,6 +1819,9 @@ ui <- fluidPage(
 # ============================================================================
 
 server <- function(input, output, session) {
+  loaded_example_id <- reactiveVal("generic")
+  example_state <- reactiveVal("Original")
+
 
   observe({
     advanced <- identical(input$active_scenario_mode, "complete")
@@ -2330,6 +2346,128 @@ get_dynamic_config <- function() {
     updateSelectInput(session, "dynamic_module_scenario", selected = "off")
     guided_country_selection_source("manual_or_default")
     guided_random_country_clicks(0L)
+  })
+
+  observeEvent(input$transmission_example_id, {
+
+    loaded_example_id(input$transmission_example_id)
+    example_state("Original")
+
+    example_row <- TRANSMISSION_EXAMPLES[
+      TRANSMISSION_EXAMPLES$id == input$transmission_example_id,
+    ]
+
+    if (nrow(example_row) != 1) {
+      return()
+    }
+
+    if (!is.na(example_row$default_R0)) {
+      updateNumericInput(session, "R0", value = example_row$default_R0)
+    }
+
+    if (!is.na(example_row$default_exposed_period_days)) {
+      updateNumericInput(session, "exposed_period_days", value = example_row$default_exposed_period_days)
+    }
+
+    if (!is.na(example_row$default_infectious_period_days)) {
+      updateNumericInput(session, "infectious_period_days", value = example_row$default_infectious_period_days)
+    }
+
+    if (!is.na(example_row$default_mortality_percent)) {
+      updateNumericInput(session, "mortality_rate", value = example_row$default_mortality_percent)
+    }
+
+  }, ignoreInit = FALSE)
+
+  observe({
+
+    req(loaded_example_id())
+
+    example_row <- TRANSMISSION_EXAMPLES[
+      TRANSMISSION_EXAMPLES$id == loaded_example_id(),
+    ]
+
+    if (nrow(example_row) != 1) {
+      return()
+    }
+
+    matches <- TRUE
+
+    if (!is.na(example_row$default_R0)) {
+      matches <- matches &&
+        isTRUE(all.equal(
+          as.numeric(input$R0),
+          as.numeric(example_row$default_R0)
+        ))
+    }
+
+    if (!is.na(example_row$default_infectious_period_days)) {
+      matches <- matches &&
+        isTRUE(all.equal(
+          as.numeric(input$infectious_period_days),
+          as.numeric(example_row$default_infectious_period_days)
+        ))
+    }
+
+    if (!is.na(example_row$default_exposed_period_days)) {
+      matches <- matches &&
+        isTRUE(all.equal(
+          as.numeric(input$exposed_period_days),
+          as.numeric(example_row$default_exposed_period_days)
+        ))
+    }
+
+    if (!is.na(example_row$default_mortality_percent)) {
+      matches <- matches &&
+        isTRUE(all.equal(
+          as.numeric(input$mortality_rate),
+          as.numeric(example_row$default_mortality_percent)
+        ))
+    }
+
+    example_state(if (matches) "Original" else "Custom")
+
+  })
+
+  output$transmission_example_status <- renderUI({
+    if (!identical(example_state(), "Custom")) {
+      return(NULL)
+    }
+
+    tags$div(
+      style = "margin-top: 6px; padding: 4px 8px; border-radius: 6px; background-color: #FDEBD0; color: #7E5109; font-weight: 600;",
+      "Status: Custom — pathogen-like parameters modified"
+    )
+  })
+
+  output$transmission_example_info <- renderUI({
+
+    req(input$transmission_example_id)
+
+    md <- TRANSMISSION_EXAMPLE_METADATA[
+      TRANSMISSION_EXAMPLE_METADATA$id == input$transmission_example_id,
+    ]
+
+    if (nrow(md) != 1) {
+      return(NULL)
+    }
+
+    tagList(
+      tags$div(
+        style = "margin-top:8px;",
+        tags$b("Description"),
+        tags$p(md$description)
+      ),
+      tags$div(
+        tags$b("Scope"),
+        tags$p(md$scope)
+      ),
+      tags$div(
+        tags$b("Limitations"),
+        tags$p(md$limitations)
+      )
+    )
+
   })
 
   observeEvent(input$reset_defaults, {

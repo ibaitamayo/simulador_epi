@@ -1,6 +1,6 @@
 id,label,family,compartment_model,default_R0,default_exposed_period_days,default_infectious_period_days,default_mortality_percent,default_dynamic_scenario,enabled,review_status,example_version
-generic,Generic,generic,SEIRD,NA,NA,NA,NA,custom_advanced,TRUE,validated,1.0
-covid19,COVID-19,respiratory,SEIRD,NA,NA,NA,NA,custom_advanced,TRUE,review_pending,1.0
+generic,Generic,generic,SEIRD,3,4,7,1,custom_advanced,TRUE,validated,1.0
+covid19,COVID-19,respiratory,SEIRD,4.25,4,5,1,custom_advanced,TRUE,review_pending,1.0
 influenza,Influenza,respiratory,SEIRD,NA,NA,NA,NA,custom_advanced,TRUE,review_pending,1.0
 measles,Measles,respiratory,SEIRD,NA,NA,NA,NA,custom_advanced,TRUE,review_pending,1.0
 ebola,Ebola,regional_contact,SEIRD,NA,NA,NA,NA,custom_advanced,TRUE,review_pending,1.0
