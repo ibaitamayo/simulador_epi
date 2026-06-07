@@ -3982,15 +3982,6 @@ get_dynamic_config <- function() {
       new_results$cost_profile$dynamic_mean_adaptive_space_multiplier <- NA
       new_results$cost_profile$dynamic_max_expressed_advantage_observed <- NA
     }
-
-    print("=== DIFFUSION DIAGNOSTIC ===")
-    print(selected_starting_country)
-    print(sum(new_results$passenger_matrix_annual[selected_starting_country, ], na.rm = TRUE))
-    print(sort(new_results$passenger_matrix_annual[selected_starting_country, ], decreasing = TRUE)[1:10])
-    print("Countries with >=1 active infection at final day:")
-    print(sum(tail(new_results$country_history, 1) >= 1, na.rm = TRUE))
-    print("Cumulative imported seeds by final day:")
-    print(sum(new_results$new_country_import_history, na.rm = TRUE))
     computation_status(sprintf(
       paste0(
         "Calculation completed.\n",
