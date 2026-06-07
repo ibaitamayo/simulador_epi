@@ -132,7 +132,7 @@ APP_DIR <- detect_current_app_dir()
 
 WORLD_POPULATION <- 8000000000
 
-WORLD_COUNTRY_POLYGONS_RDS_FILE <- "docs/roadmap/world_countries_simplified_common_iso.rds"
+WORLD_COUNTRY_POLYGONS_RDS_FILE <- "inst/data/world_countries_simplified_common_iso.rds"
 
 TRANSMISSION_EXAMPLES <- load_transmission_examples()
 TRANSMISSION_EXAMPLE_METADATA <- load_transmission_example_metadata()
@@ -257,7 +257,7 @@ make_bilateral_passenger_matrix <- function(countries,
 # Step 2 keeps contact and susceptibility weights neutral. Differential CFR
 # mode calibrates the age profile so that the weighted average approximates the
 # global CFR input multiplied by the CFR scale factor.
-WORLD_COUNTRY_POLYGONS_RDS_FILE <- "docs/roadmap/world_countries_simplified_common_iso.rds"
+WORLD_COUNTRY_POLYGONS_RDS_FILE <- "inst/data/world_countries_simplified_common_iso.rds"
 
 load_world_country_polygons <- function() {
   polygon_path <- find_age_distribution_file(WORLD_COUNTRY_POLYGONS_RDS_FILE)
