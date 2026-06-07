@@ -56,7 +56,7 @@ The app expects the following files to be available in the project directory or 
 
 Optional or legacy reference files may include:
 
-- fixed_covid_omicron_reference_sir.rds
+- fixed_covid_omicron_reference_age_adjusted_seird.rds
 - fixed_covid_omicron_reference_age_adjusted.rds
 
 ## How to run
