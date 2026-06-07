@@ -163,3 +163,133 @@ validate_transmission_configuration <- function(verbose = TRUE) {
 
   invisible(TRUE)
 }
+
+get_transmission_example <- function(example_id, examples = TRANSMISSION_EXAMPLES) {
+
+  x <- examples[examples$id == example_id, ]
+
+  if (nrow(x) != 1) {
+    return(NULL)
+  }
+
+  x
+}
+
+apply_transmission_example <- function(
+    session,
+    example_id,
+    examples = TRANSMISSION_EXAMPLES) {
+
+  example_row <- get_transmission_example(
+    example_id,
+    examples
+  )
+
+  if (is.null(example_row)) {
+    return(invisible(FALSE))
+  }
+
+  if (!is.na(example_row$default_R0)) {
+    updateNumericInput(
+      session,
+      "R0",
+      value = example_row$default_R0
+    )
+  }
+
+  if (!is.na(example_row$default_exposed_period_days)) {
+    updateNumericInput(
+      session,
+      "exposed_period_days",
+      value = example_row$default_exposed_period_days
+    )
+  }
+
+  if (!is.na(example_row$default_infectious_period_days)) {
+    updateNumericInput(
+      session,
+      "infectious_period_days",
+      value = example_row$default_infectious_period_days
+    )
+  }
+
+  if (!is.na(example_row$default_mortality_percent)) {
+    updateNumericInput(
+      session,
+      "mortality_rate",
+      value = example_row$default_mortality_percent
+    )
+  }
+
+  invisible(TRUE)
+}
+
+get_transmission_example_metadata <- function(
+    example_id,
+    metadata = TRANSMISSION_EXAMPLE_METADATA) {
+
+  x <- metadata[
+    metadata$id == example_id,
+  ]
+
+  if (nrow(x) != 1) {
+    return(NULL)
+  }
+
+  x
+}
+
+is_transmission_example_custom <- function(
+    example_id,
+    r0,
+    exposed_period,
+    infectious_period,
+    mortality_rate,
+    examples = TRANSMISSION_EXAMPLES) {
+
+  example_row <- get_transmission_example(
+    example_id,
+    examples
+  )
+
+  if (is.null(example_row)) {
+    return(FALSE)
+  }
+
+  matches <- TRUE
+
+  if (!is.na(example_row$default_R0)) {
+    matches <- matches &&
+      isTRUE(all.equal(
+        as.numeric(r0),
+        as.numeric(example_row$default_R0)
+      ))
+  }
+
+  if (!is.na(example_row$default_exposed_period_days)) {
+    matches <- matches &&
+      isTRUE(all.equal(
+        as.numeric(exposed_period),
+        as.numeric(example_row$default_exposed_period_days)
+      ))
+  }
+
+  if (!is.na(example_row$default_infectious_period_days)) {
+    matches <- matches &&
+      isTRUE(all.equal(
+        as.numeric(infectious_period),
+        as.numeric(example_row$default_infectious_period_days)
+      ))
+  }
+
+  if (!is.na(example_row$default_mortality_percent)) {
+    matches <- matches &&
+      isTRUE(all.equal(
+        as.numeric(mortality_rate),
+        as.numeric(example_row$default_mortality_percent)
+      ))
+  }
+
+  !matches
+}
+

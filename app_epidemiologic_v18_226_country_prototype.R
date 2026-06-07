@@ -2353,79 +2353,35 @@ get_dynamic_config <- function() {
     loaded_example_id(input$transmission_example_id)
     example_state("Original")
 
-    example_row <- TRANSMISSION_EXAMPLES[
-      TRANSMISSION_EXAMPLES$id == input$transmission_example_id,
-    ]
-
-    if (nrow(example_row) != 1) {
-      return()
-    }
-
-    if (!is.na(example_row$default_R0)) {
-      updateNumericInput(session, "R0", value = example_row$default_R0)
-    }
-
-    if (!is.na(example_row$default_exposed_period_days)) {
-      updateNumericInput(session, "exposed_period_days", value = example_row$default_exposed_period_days)
-    }
-
-    if (!is.na(example_row$default_infectious_period_days)) {
-      updateNumericInput(session, "infectious_period_days", value = example_row$default_infectious_period_days)
-    }
-
-    if (!is.na(example_row$default_mortality_percent)) {
-      updateNumericInput(session, "mortality_rate", value = example_row$default_mortality_percent)
-    }
+    apply_transmission_example(
+      session = session,
+      example_id = input$transmission_example_id,
+      examples = TRANSMISSION_EXAMPLES
+    )
 
   }, ignoreInit = FALSE)
+
 
   observe({
 
     req(loaded_example_id())
 
-    example_row <- TRANSMISSION_EXAMPLES[
-      TRANSMISSION_EXAMPLES$id == loaded_example_id(),
-    ]
-
-    if (nrow(example_row) != 1) {
-      return()
-    }
-
-    matches <- TRUE
-
-    if (!is.na(example_row$default_R0)) {
-      matches <- matches &&
-        isTRUE(all.equal(
-          as.numeric(input$R0),
-          as.numeric(example_row$default_R0)
-        ))
-    }
-
-    if (!is.na(example_row$default_infectious_period_days)) {
-      matches <- matches &&
-        isTRUE(all.equal(
-          as.numeric(input$infectious_period_days),
-          as.numeric(example_row$default_infectious_period_days)
-        ))
-    }
-
-    if (!is.na(example_row$default_exposed_period_days)) {
-      matches <- matches &&
-        isTRUE(all.equal(
-          as.numeric(input$exposed_period_days),
-          as.numeric(example_row$default_exposed_period_days)
-        ))
-    }
-
-    if (!is.na(example_row$default_mortality_percent)) {
-      matches <- matches &&
-        isTRUE(all.equal(
-          as.numeric(input$mortality_rate),
-          as.numeric(example_row$default_mortality_percent)
-        ))
-    }
-
-    example_state(if (matches) "Original" else "Custom")
+    example_state(
+      if (
+        is_transmission_example_custom(
+          example_id = loaded_example_id(),
+          r0 = input$R0,
+          exposed_period = input$exposed_period_days,
+          infectious_period = input$infectious_period_days,
+          mortality_rate = input$mortality_rate,
+          examples = TRANSMISSION_EXAMPLES
+        )
+      ) {
+        "Custom"
+      } else {
+        "Original"
+      }
+    )
 
   })
 
@@ -2444,11 +2400,12 @@ get_dynamic_config <- function() {
 
     req(input$transmission_example_id)
 
-    md <- TRANSMISSION_EXAMPLE_METADATA[
-      TRANSMISSION_EXAMPLE_METADATA$id == input$transmission_example_id,
-    ]
+    md <- get_transmission_example_metadata(
+      input$transmission_example_id,
+      metadata = TRANSMISSION_EXAMPLE_METADATA
+    )
 
-    if (nrow(md) != 1) {
+    if (is.null(md)) {
       return(NULL)
     }
 
