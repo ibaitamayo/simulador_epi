@@ -57,10 +57,6 @@ scope_assumptions_limitations_tab <- function() {
 
     hr(),
     h4("Reference comparator metadata"),
-    tableOutput("reference_comparator_metadata_table"),
-
-    hr(),
-    h4("Copy-paste scope report"),
-    verbatimTextOutput("model_scope_report")
+    tableOutput("reference_comparator_metadata_table")
   )
 }
