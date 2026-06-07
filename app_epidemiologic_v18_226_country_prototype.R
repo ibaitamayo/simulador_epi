@@ -2398,6 +2398,11 @@ get_dynamic_config <- function() {
     tagList(
       tags$div(
         style = "margin-top:8px;",
+        tags$b("Evidence status"),
+        tags$p(md$evidence_level)
+      ),
+
+      tags$div(
         tags$b("Description"),
         tags$p(md$description)
       ),
