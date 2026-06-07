@@ -17,6 +17,7 @@ source("R/containment_helpers.R")
 source("R/chart_helpers.R")
 source("R/scenario_helpers.R")
 source("R/transmission_examples.R")
+source("R/transmission_examples_ui.R")
 source("R/data_loading_helpers.R")
 source("R/diagnostics_helpers.R")
 
@@ -1304,17 +1305,7 @@ ui <- fluidPage(
           "Examples load documented starting configurations. All parameters remain editable."
         ),
         uiOutput("transmission_example_status"),
-        tags$details(
-          style = "margin-top: 10px;",
-          tags$summary(
-            style = "cursor: pointer; color: #2E86C1; font-weight: 700; background-color: #EBF5FB; padding: 6px 8px; border-radius: 6px;",
-            "About this Example"
-          ),
-          tags$div(
-            style = "background-color: #F8FBFD; border-left: 3px solid #2E86C1; padding: 8px 10px; margin-top: 6px; border-radius: 4px;",
-            uiOutput("transmission_example_info")
-          )
-        )
+        transmission_example_info_panel()
       ),
 
       numericInput("R0", "Initial expansion capacity (R0/Rt):", value = 5.0, min = 0.5, max = 15.0, step = 0.1),
@@ -2386,13 +2377,8 @@ get_dynamic_config <- function() {
   })
 
   output$transmission_example_status <- renderUI({
-    if (!identical(example_state(), "Custom")) {
-      return(NULL)
-    }
-
-    tags$div(
-      style = "margin-top: 6px; padding: 4px 8px; border-radius: 6px; background-color: #FDEBD0; color: #7E5109; font-weight: 600;",
-      "Status: Custom — pathogen-like parameters modified"
+    transmission_example_status_badge(
+      example_state()
     )
   })
 
