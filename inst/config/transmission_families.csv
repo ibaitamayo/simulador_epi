@@ -1,0 +1,6 @@
+family_id,family_label,description
+generic,Generic,Generic configurable transmission family
+respiratory,Respiratory,Respiratory transmission family
+regional_contact,Regional Contact,Predominantly regional spread family
+water_associated,Water Associated,Water-associated transmission family
+slow_progression,Slow Progression,Long-duration progression family
