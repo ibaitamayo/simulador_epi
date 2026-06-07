@@ -30,7 +30,12 @@ register_scope_assumptions_outputs <- function(
         "Session-level; export/import JSON for reuse across sessions"
       ),
       Status = c(
-        ifelse(exists("COUNTRY_AGE_DISTRIBUTION", inherits = TRUE) && !is.null(COUNTRY_AGE_DISTRIBUTION$data), "available", "fallback or missing"),
+        ifelse(
+          file.exists(AGE_DISTRIBUTION_RDS_FILE) ||
+            file.exists(AGE_DISTRIBUTION_CSV_FILE),
+          "available",
+          "fallback or missing"
+        ),
         ifelse(world_polygon_available_fn(), "available", "fallback markers only"),
         ifelse(identical(selected_fixed_reference_type_fn(), "age_adjusted_seird"), "available / selected", "not selected or missing"),
         "ok",
