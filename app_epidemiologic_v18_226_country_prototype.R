@@ -16,6 +16,7 @@ source("R/age_helpers.R")
 source("R/containment_helpers.R")
 source("R/chart_helpers.R")
 source("R/scenario_helpers.R")
+source("R/transmission_examples.R")
 source("R/data_loading_helpers.R")
 source("R/diagnostics_helpers.R")
 
@@ -123,6 +124,13 @@ APP_DIR <- detect_current_app_dir()
 WORLD_POPULATION <- 8000000000
 
 WORLD_COUNTRY_POLYGONS_RDS_FILE <- "docs/roadmap/world_countries_simplified_common_iso.rds"
+
+TRANSMISSION_EXAMPLES <- load_transmission_examples()
+TRANSMISSION_EXAMPLE_METADATA <- load_transmission_example_metadata()
+TRANSMISSION_FAMILIES <- load_transmission_families()
+TRANSMISSION_EXAMPLE_REFERENCES <- load_transmission_example_references()
+
+validate_transmission_configuration(FALSE)
 
 COUNTRY_MASTER <- readRDS(
   "docs/roadmap/country_master_2026_common_iso.rds"
