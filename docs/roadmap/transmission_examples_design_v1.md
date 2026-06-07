@@ -224,3 +224,61 @@ Rationale:
 - This reinforces that examples are editable starting configurations, not fixed models.
 
 The current prototype placement is temporary and only validates UI availability.
+
+---
+
+## Custom State Detection
+
+### Objective
+
+Users should always know whether they are working with:
+
+- an original Transmission Example; or
+- a modified configuration derived from an example.
+
+### Behaviour
+
+When a Transmission Example is selected, the interface should display:
+
+Status: Original
+
+If the user modifies one or more parameters that belong to the example definition, the status should automatically change to:
+
+Status: Custom
+
+Tracked parameters include:
+
+- R0
+- Exposed period
+- Infectious period
+- Mortality
+- future example-controlled parameters
+
+### Reloading
+
+Selecting the same example again should reload its stored defaults and restore:
+
+Status: Original
+
+### Rationale
+
+Transmission Examples represent documented starting configurations.
+
+Users remain free to modify parameters, but the interface should clearly distinguish between:
+
+- the documented example; and
+- a user-customised configuration.
+
+This improves transparency, reproducibility and educational clarity.
+
+### Implementation Note
+
+The simulator should maintain:
+
+loaded_example_id
+
+and compare active parameter values against the currently loaded example definition.
+
+If any tracked parameter differs from the stored example value, the example state becomes:
+
+Custom
