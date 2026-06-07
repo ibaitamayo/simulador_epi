@@ -1,9 +1,9 @@
 
 # ============================================================================
-# SHINY APP: MACROSCOPIC SIR MODEL WITH WORLD MAP, AIR-TRAFFIC SPREAD,
-# AND STOCHASTIC VARIANT REPLACEMENT
-# Version v13: infection-age kernel, Rt-dependent imported establishment,
-# preserved country names after vector operations, and explicit diffusion diagnostics.
+# EPIDEM: MACROSCOPIC POPULATION-LEVEL EPIDEMIOLOGICAL SIMULATOR
+# Version v18 prototype: near-global country coverage, age-adjusted SEIRD/SIRD dynamics,
+# configurable transmission examples, externalized mobility data, calibration diagnostics,
+# containment scenarios, and world-map visualization..
 # ============================================================================
 
 library(shiny)
