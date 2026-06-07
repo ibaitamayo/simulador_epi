@@ -1169,6 +1169,23 @@ ui <- fluidPage(
         uiOutput("covid_reference_card"),
         tags$p(class = "small-note", "This comparator represents a theoretical SEIRD scenario with age effects applied to the model and international passenger traffic between countries. It describes the plausible model-based trajectory if the first variant had been Omicron and no containment measures had been applied at any point.")
       ),
+      div(class = "transmission-example-box",
+        h4("Transmission Example", style = "color: #2E86C1; font-weight: bold;"),
+        selectInput(
+          "transmission_example_id",
+          "Example:",
+          choices = stats::setNames(
+            TRANSMISSION_EXAMPLES$id,
+            TRANSMISSION_EXAMPLES$label
+          ),
+          selected = "generic"
+        ),
+        tags$p(
+          class = "small-note",
+          "Examples load documented starting configurations. All parameters remain editable."
+        )
+      ),
+
       div(class = "simulation-action-box",
         tags$div(class = "primary-run-button",
           actionButton("run_simulation", "Run simulation", icon = icon("play"), class = "btn btn-danger btn-lg")

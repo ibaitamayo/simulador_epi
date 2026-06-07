@@ -210,3 +210,17 @@ Advanced users can:
 
 without affecting simplicity for other users.
 
+
+---
+
+## Final UI Placement Requirement
+
+In the final user interface, the Transmission Example selector should be placed immediately above the main epidemiological parameter controls, especially R0 and related model parameters.
+
+Rationale:
+
+- The example selector loads starting parameter values.
+- Users should see the loaded parameters immediately below the selector.
+- This reinforces that examples are editable starting configurations, not fixed models.
+
+The current prototype placement is temporary and only validates UI availability.
